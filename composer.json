@@ -1,0 +1,9 @@
+{
+    "name": "asus/factoria-crm",
+    "autoload": {
+        "psr-4": {
+            "Asus\\FactoriaCrm\\": "src/"
+        }
+    },
+    "require": {}
+}
