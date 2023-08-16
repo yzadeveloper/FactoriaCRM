@@ -1,8 +1,9 @@
 {
-    "name": "magdalenafilgueira/factoria-crm",
+    "name": "maitenavas/factoria-crm",
     "autoload": {
         "psr-4": {
-            "Magdalenafilgueira\\FactoriaCrm\\": "src/"
+            "Maitenavas\\FactoriaCrm\\": "src/",
+            "Database\\":"database/"
         }
     },
     "require": {}
