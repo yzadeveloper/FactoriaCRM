@@ -1,8 +1,8 @@
 {
-    "name": "asus/factoria-crm",
+    "name": "magdalenafilgueira/factoria-crm",
     "autoload": {
         "psr-4": {
-            "Asus\\FactoriaCrm\\": "src/"
+            "Magdalenafilgueira\\FactoriaCrm\\": "src/"
         }
     },
     "require": {}
