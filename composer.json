@@ -1,8 +1,9 @@
 {
-    "name": "asus/factoria-crm",
+    "name": "maitenavas/factoria-crm",
     "autoload": {
         "psr-4": {
-            "Asus\\FactoriaCrm\\": "src/"
+            "Maitenavas\\FactoriaCrm\\": "src/",
+            "Database\\":"database/"
         }
     },
     "require": {}
