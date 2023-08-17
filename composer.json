@@ -1,9 +1,10 @@
 {
-    "name": "maitenavas/factoria-crm",
+    "name": "hackhers/factoria-crm",
     "autoload": {
         "psr-4": {
-            "Maitenavas\\FactoriaCrm\\": "src/",
-            "Database\\":"database/"
+            "Hackhers\\FactoriaCrm\\": "src/",
+            "Database\\":"database/",
+            "App\\":"app/"
         }
     },
     "require": {}
