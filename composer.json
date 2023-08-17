@@ -3,7 +3,8 @@
     "autoload": {
         "psr-4": {
             "Hackhers\\FactoriaCrm\\": "src/",
-            "Database\\":"database/"
+            "Database\\":"database/",
+            "App\\":"app/"
         }
     },
     "require-dev": {
