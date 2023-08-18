@@ -2,8 +2,6 @@
 namespace App\Controllers;
 use Database\DatabaseConnection;
 use Exception;
-
-
 class PersonaController{
     private $server;
     private $username;
@@ -23,18 +21,20 @@ class PersonaController{
         $this-> connection -> connect();
     }
     function show($id){
-        $query ="SELECT * FROM persona";
+        $query ="SELECT * FROM persona where id = :id limit 1";
         //$query = "SELECT * FROM persona WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-        $stm -> execute([":id" => $id]);
+        $stm -> bindParam(":id",$id);
+        $stm -> execute();
         $result = $stm-> fetch(\PDO::FETCH_ASSOC);
         
         if(!empty($result)){
-                echo $result['nombre'];  
+                  
         } else{
             echo "El registro no existe";
         }
+        return $result;
     }
     function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni){
         
@@ -97,6 +97,34 @@ class PersonaController{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
+    public function update($id, $nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $dni){
+
+        $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, correo = :correo, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, fecha_nacimiento = :fecha_nacimiento, dni = :dni WHERE id = :id";
+
+  
+
+        $stm = $this->connection -> get_connection()->prepare($query);
+        $stm->bindParam(":id",$id);
+        
+        $stm->bindParam(":nombre",$nombre);
+        $stm->bindParam(":apellidos",$apellidos);
+        $stm->bindParam(":correo",$correo);
+        $stm->bindParam(":telefono",$telefono);
+        $stm->bindParam(":direccion",$direccion);
+        $stm->bindParam(":codigo_postal",$codigo_postal);
+        $stm->bindParam(":fecha_nacimiento",$fecha_nacimiento);
+        $stm->bindParam(":dni",$dni);
+
+        $result = $stm -> execute();
+               
+        if($result){
+
+            header("Location:show.php");
+        } else{
+            echo "No se pudo actualizar el registro con id: $id";
+        }
+    }
+
 
 }
 

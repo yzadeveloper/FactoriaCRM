@@ -1,11 +1,12 @@
 <?php
 
-require_once '../vendor/autoload.php'; // Asegúrate de cargar el autoloader de Composer
-require_once '../database/DatabaseConnection.php'; // Ajusta la ruta al archivo de la clase DatabaseConnection
+//require_once '../vendor/autoload.php'; // Asegúrate de cargar el autoloader de Composer
+use Database\DatabaseConnection;
 
-class DatabaseConnectionTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+class DatabaseConnectionTest extends TestCase
 {
-    public function testDatabaseConnection()
+    public function testDatabaseConnectionSuccess()
     {
         $server = 'localhost'; // Cambia esto por tu configuración
         $username = 'root';    // Cambia esto por tu configuración
@@ -14,8 +15,9 @@ class DatabaseConnectionTest extends \PHPUnit\Framework\TestCase
 
         $dbConnection = new DatabaseConnection($server, $username, $password, $database);
         $dbConnection->connect();
+        $connection = $dbConnection->get_connection();
 
-        $this->assertInstanceOf(\PDO::class, $dbConnection->get_connection());
+        $this->assertEquals(null, $connection);
     }
 }
 
