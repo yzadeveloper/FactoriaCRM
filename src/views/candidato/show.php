@@ -1,9 +1,12 @@
 <?php
 use App\Controllers\PersonaController;
-require __DIR__ . '../../../vendor/autoload.php';
+
+require __DIR__ . '../../../../vendor/autoload.php';
     
-    $obj = new PersonaController();
-    $data = $obj->show($_POST['id']);
+    $obj = new PersonaController;
+    $results = $obj->index();
+    
+   
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,7 @@ require __DIR__ . '../../../vendor/autoload.php';
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>
-            <th colspan="6" class="text-center"><b>LISTA DE CANDIDATOS</b></th>
+            <th colspan="9" class="text-center"><b>LISTA DE CANDIDATOS</b></th>
         </tr>
         <tr>
             <th scope="col">NOMBRE</th>
@@ -33,16 +36,21 @@ require __DIR__ . '../../../vendor/autoload.php';
         </tr>
     </thead>
     <tbody>
-        <?php if($rows): ?>
-            <?php foreach($rows as $row): ?>
+        <?php if($results): ?>
+            <?php foreach($results as $result): ?>
                 <tr>
-                    <th><?=$row["nombre"] ?></th>
-                    <th><?=$row["apellidos"] ?></th>
-                    <th><?=$row["correo"] ?></th>
-                    <th><?=$row["telefono"] ?></th>
+                    <th><?=$result["nombre"] ?></th>
+                    <th><?=$result["apellidos"] ?></th>
+                    <th><?=$result["correo"] ?></th>
+                    <th><?=$result["telefono"] ?></th>
+                    <th><?=$result["direccion"] ?></th>
+                    <th><?=$result["codigo_postal"] ?></th>
+                    <th><?=$result["fecha_nacimiento"] ?></th>
+                    <th><?=$result["genero"] ?></th>
+                    <th><?=$result["dni"] ?></th>
                     <th>
-                        <a href="./view/task/show.php?id=<?= $row["id"]?>" class="btn btn-primary">Ver</a>
-                        <a href="./view/task/edit.php?id=<?= $row["id"]?>" class="btn btn-success">Editar</a>
+                        <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
+                        <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
                         <!-- Button trigger modal -->
                         <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</a>
                         <!-- Modal -->
@@ -50,7 +58,7 @@ require __DIR__ . '../../../vendor/autoload.php';
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">¿Desea eliminar la tarea?</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">¿Desea eliminar el candidato?</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -58,7 +66,7 @@ require __DIR__ . '../../../vendor/autoload.php';
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
-                                        <a href="./view/task/delete.php?id=<?= $row["id"]?>" class="btn btn-danger">Eliminar</a>  
+                                        <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>  
                                     </div>
                                 </div>
                             </div>

@@ -19,13 +19,12 @@ class PersonaController{
         $this -> password = "";
         $this -> database = "crm_factoria";
 
-        
         $this -> connection = new DatabaseConnection($this->server, $this->username, $this->password,$this->database); 
         $this-> connection -> connect();
     }
     function show($id){
-        
-        $query = "SELECT * FROM persona WHERE id=:id";
+        $query ="SELECT * FROM persona";
+        //$query = "SELECT * FROM persona WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> execute([":id" => $id]);
@@ -37,33 +36,31 @@ class PersonaController{
             echo "El registro no existe";
         }
     }
-    function store($data){
+    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni){
         
         $query = "INSERT INTO persona (nombre,
          apellidos, correo, telefono, direccion, 
-         codigo_postal, fecha_nacimiento, tratamiento_datos,
-          genero, dni)
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+         codigo_postal, fecha_nacimiento, genero, dni)
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
+        $results = $stm -> execute([$nombre,
+        $apellidos,
+        $correo,
+        $telefono,
+        $direccion,
+        $codigo_postal,
+        $fecha_nacimiento,
+        $genero,
+        $dni,
+      ]);
 
-        $results = $stm -> execute([$data['nombre'],
-                                    $data['apellidos'],
-                                    $data['correo'],
-                                    $data['telefono'],
-                                    $data['direccion'],
-                                    $data['codigo_postal'],
-                                    $data['fecha_nacimiento'],
-                                    $data['tratamiento_datos'],
-                                    $data['genero'],
-                                    $data['dni'],
-                                  ]);
         header("Location: show.php");
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el candidato: '{$data['nombre']}'
+                $response = "Se registró exitosamente el candidato: '{$nombre['nombre']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
@@ -73,6 +70,34 @@ class PersonaController{
         }
         
     }
+    function index(){
+
+        $query = "SELECT * FROM persona";
+
+        $stm = $this->connection -> get_connection()->prepare($query);
+
+        $stm -> execute();
+        $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
+        return $results;
+        
+        //require("./src/views/candidato/show.php");
+    }
+    public function delete($id){
+
+        $query = "DELETE FROM persona WHERE id=:id";
+
+        $stm = $this->connection -> get_connection()->prepare($query);
+
+        $result = $stm -> execute([":id" => $id]);
+               
+        if($result){
+
+            header("Location:./src/views/candidato/show.php");
+        } else{
+            echo "No se pudo eliminar el registro con id: $id";
+        }
+    }
+
 }
 
 ?>
