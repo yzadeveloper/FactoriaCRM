@@ -49,7 +49,7 @@ class RequisitosIngresoController{
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el candidato: '{$nombre['nombre']}'
+                $response = "Se registró exitosamente el requisito: '{$nombre['nombre']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];

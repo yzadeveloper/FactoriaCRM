@@ -31,7 +31,7 @@
                 <input type="number" name="codigo_postal" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
-                <input type="text" name="date_create"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="date" name="fecha_nacimiento"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 <label for="exampleInputEmail1" class="form-label">Género</label>
                 <input type="text" name="genero" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

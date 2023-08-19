@@ -1,10 +1,8 @@
 <?php
 use App\Controllers\RequisitosIngresoController;
 require __DIR__ . '../../../../../../vendor/autoload.php';
-    
     $obj = new RequisitosIngresoController;
     $results = $obj->index();
-
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +34,6 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
                     <th><?=$result["id"] ?></th>
                     <th><?=$result["nombre"] ?></th>
                     <th>
-                        <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
                         <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a> 
                     </th>
