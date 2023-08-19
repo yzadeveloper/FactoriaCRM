@@ -66,6 +66,7 @@
     <div class="col-sm-10">
       <input type="date" name="fecha_nacimiento" class="form-control" id="inputPassword" value="<?= $result["fecha_nacimiento"]?>">
     </div>
+    </div>
     <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">DNI/NIE/Pasaporte</label>
     <div class="col-sm-10">
