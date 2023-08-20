@@ -1,8 +1,12 @@
 <?php
-    use App\Controllers\PersonaController;
-    require __DIR__ . '../../../../../vendor/autoload.php';
+use App\Controllers\PersonaController;
+use App\Controllers\RequisitosIngresoController;
+require __DIR__ . '../../../../../vendor/autoload.php';
+
     $obj = new PersonaController;
     $result = $obj->show($_GET['id']);
+    $obj2 = new RequisitosIngresoController;
+    $requisitos = $obj2->index();
 
 
 ?>
@@ -60,24 +64,51 @@
     <div class="col-sm-10">
       <input type="number" name="codigo_postal" class="form-control" id="inputPassword" value="<?= $result["codigo_postal"]?>">
     </div>
-    </div>
-    <div class="mb-3 row">
+  </div>
+  <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Fecha de nacimiento</label>
     <div class="col-sm-10">
       <input type="date" name="fecha_nacimiento" class="form-control" id="inputPassword" value="<?= $result["fecha_nacimiento"]?>">
     </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Género</label>
+    <div class="col-sm-10">
+      <select class="form-select" aria-label="Default select example" name="genero">
+                      <option selected><?= $result["genero"]?></option>
+                      <option value="hombre">Hombre</option>
+                      <option value="mujer">Mujer</option>
+                      <option value="otro">Otro</option>
+      </select>
     </div>
-    <div class="mb-3 row">
+  </div>
+  <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">DNI/NIE/Pasaporte</label>
     <div class="col-sm-10">
       <input type="text" name="dni" class="form-control" id="inputPassword" value="<?= $result["dni"]?>">
     </div>
   </div>
-  </div>
+  <input type="submit" value="Actualizar" class="btn btn-success">
+  <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Volver</a>
+</form>
+  <h2>Requisitos de acceso</h2>
+  <form action="update.php" method="post" autocomplete="off">
+        <?php if($requisitos): ?>
+            <?php foreach($requisitos as $requisito): ?>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label"><?=$requisito["nombre"] ?></label>
+                <div class="col-sm-10 form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <input type="datetime" name="fecha" class="form-control" id="inputPassword" hidden>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+        <?php endif; ?>
+
     <input type="submit" value="Actualizar" class="btn btn-success">
-    <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Cancelar</a>
-    </div>
-  </div>
+    <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Volver</a>
 </form>
     
 </body>

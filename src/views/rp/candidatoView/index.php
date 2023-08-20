@@ -1,7 +1,7 @@
 <?php
 use App\Controllers\PersonaController;
 
-require __DIR__ . '../../../../vendor/autoload.php';
+require __DIR__ . '../../../../../vendor/autoload.php';
     
     $obj = new PersonaController;
     $results = $obj->index();
@@ -18,6 +18,8 @@ require __DIR__ . '../../../../vendor/autoload.php';
     <title>Candidatos Factoría F5</title>
 </head>
 <body>
+<a class="btn btn-primary" href="./requisitos/create.php">Añadir requisito</a>
+<a class="btn btn-primary" href="create.php">Crear Candidato</a>
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>
@@ -28,11 +30,6 @@ require __DIR__ . '../../../../vendor/autoload.php';
             <th scope="col">APELLIDOS</th>
             <th scope="col">CORREO</th>
             <th scope="col">TELEFONO</th>
-            <th scope="col">DIRECCIÓN</th>
-            <th scope="col">CÓDIGO POSTAL</th>
-            <th scope="col">FECHA DE NACMIENTO</th>
-            <th scope="col">GÉNERO</th>
-            <th scope="col">DNI/NIE/PASAPORTE</th>
         </tr>
     </thead>
     <tbody>
@@ -43,11 +40,6 @@ require __DIR__ . '../../../../vendor/autoload.php';
                     <th><?=$result["apellidos"] ?></th>
                     <th><?=$result["correo"] ?></th>
                     <th><?=$result["telefono"] ?></th>
-                    <th><?=$result["direccion"] ?></th>
-                    <th><?=$result["codigo_postal"] ?></th>
-                    <th><?=$result["fecha_nacimiento"] ?></th>
-                    <th><?=$result["genero"] ?></th>
-                    <th><?=$result["dni"] ?></th>
                     <th>
                         <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
@@ -57,7 +49,7 @@ require __DIR__ . '../../../../vendor/autoload.php';
             <?php endforeach; ?>
         <?php else: ?>
             <tr>
-                <td colspan="9" class="text-center">No hay registros</td>
+                <td colspan="5" class="text-center">No hay registros</td>
             </tr>
         <?php endif; ?>
     </tbody>

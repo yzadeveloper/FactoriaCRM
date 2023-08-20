@@ -2,7 +2,7 @@
 namespace App\Controllers;
 use Database\DatabaseConnection;
 use Exception;
-class PersonaController{
+class PersonaRequisitosIngresoController{
     private $server;
     private $username;
     private $password;
@@ -20,12 +20,12 @@ class PersonaController{
         $this -> connection = new DatabaseConnection($this->server, $this->username, $this->password,$this->database); 
         $this-> connection -> connect();
     }
-    function show($id){
-        $query ="SELECT * FROM persona where id = :id limit 1";
-        //$query = "SELECT * FROM persona WHERE id=:id";
-
+    function show($id_persona,$id_requisito){
+        $query ="SELECT * FROM requisitos_ingreso where id_persona = :id ";
+        
         $stm = $this->connection -> get_connection()->prepare($query);
-        $stm -> bindParam(":id",$id);
+        $stm -> bindParam(":id_persona",$id_persona);
+        $stm -> bindParam(":id_requisito",$id_requisito);
         $stm -> execute();
         $result = $stm-> fetch(\PDO::FETCH_ASSOC);
         
@@ -36,31 +36,20 @@ class PersonaController{
         }
         return $result;
     }
-    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni){
+    function store($id, $requisito, $fecha){
         
-        $query = "INSERT INTO persona (nombre,
-         apellidos, correo, telefono, direccion, 
-         codigo_postal, fecha_nacimiento, genero, dni)
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO persona_requisitos_ingreso (id_persona, id_requisitos_ingreso,fecha)
+                  VALUES (?,?,?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
-        $results = $stm -> execute([$nombre,
-        $apellidos,
-        $correo,
-        $telefono,
-        $direccion,
-        $codigo_postal,
-        $fecha_nacimiento,
-        $genero,
-        $dni,
-      ]);
+        $results = $stm -> execute([$id, $requisito, $fecha]);
 
-       //header("Location: show.php");
+        header("Location:show.php?id=$id");
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el candidato: '{$nombre}'
+                $response = "Se registró exitosamente el requisito: '{$requisito['nombre']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
@@ -72,7 +61,7 @@ class PersonaController{
     }
     function index(){
 
-        $query = "SELECT * FROM persona";
+        $query = "SELECT * FROM persona_requisitos_ingreso";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
@@ -80,11 +69,11 @@ class PersonaController{
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         return $results;
         
-
+        //require("./src/views/candidato/show.php");
     }
     public function delete($id){
 
-        $query = "DELETE FROM persona WHERE id=:id";
+        $query = "DELETE FROM requisitos_ingreso WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
@@ -92,29 +81,21 @@ class PersonaController{
                
         if($result){
 
-            header("Location: index.php");
+            header("Location:./src/views/candidato/show.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
-    public function update($id, $nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento,$genero, $dni){
+    public function update($id, $nombre){
 
-        $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, correo = :correo, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, fecha_nacimiento = :fecha_nacimiento, genero = :genero, dni = :dni WHERE id = :id";
+        $query = "UPDATE persona_requisitos_ingreso SET nombre = :nombre WHERE id = :id";
 
   
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
-        
         $stm->bindParam(":nombre",$nombre);
-        $stm->bindParam(":apellidos",$apellidos);
-        $stm->bindParam(":correo",$correo);
-        $stm->bindParam(":telefono",$telefono);
-        $stm->bindParam(":direccion",$direccion);
-        $stm->bindParam(":codigo_postal",$codigo_postal);
-        $stm->bindParam(":fecha_nacimiento",$fecha_nacimiento);
-        $stm->bindParam(":genero",$genero);
-        $stm->bindParam(":dni",$dni);
+
 
         $result = $stm -> execute();
                

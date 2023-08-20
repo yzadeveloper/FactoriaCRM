@@ -34,14 +34,19 @@
                 <input type="date" name="fecha_nacimiento"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 <label for="exampleInputEmail1" class="form-label">Género</label>
-                <input type="text" name="genero" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <select class="form-select" aria-label="Default select example" name="genero">
+                    <option selected>Elige un género</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Otro">Otro</option>
+                </select>
 
                 <label for="exampleInputEmail1" class="form-label">DNI/NIE/Pasaporte</label>
                 <input type="text" name="dni" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 <br><br>
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a class="btn btn-danger" href="show.php">Cancelar</a>
+            <a class="btn btn-danger" href="index.php">Cancelar</a>
             <br><br>
         </form>
     </div>

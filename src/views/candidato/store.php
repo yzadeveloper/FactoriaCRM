@@ -4,7 +4,10 @@
     $obj = new PersonaController;
     $obj->store($_POST['nombre'], $_POST['apellidos'],$_POST['correo'],$_POST['telefono'], $_POST['direccion'],
      $_POST['codigo_postal'], $_POST['fecha_nacimiento'], $_POST['genero'], $_POST['dni']);
-
+   
+    
+    
+    header("Location: success.php")
 
 
 ?>
