@@ -86,15 +86,16 @@ class PersonaRequisitosIngresoController{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
-    public function update($id, $nombre){
+    public function update($id, $nombre, $fecha){
 
-        $query = "UPDATE persona_requisitos_ingreso SET nombre = :nombre WHERE id = :id";
+        $query = "UPDATE persona_requisitos_ingreso SET nombre = :nombre, fecha = :fecha WHERE id = :id";
 
   
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
         $stm->bindParam(":nombre",$nombre);
+        $stm->bindParam(":fecha",$fecha);
 
 
         $result = $stm -> execute();
