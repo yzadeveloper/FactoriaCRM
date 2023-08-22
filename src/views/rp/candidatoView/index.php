@@ -30,6 +30,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <th scope="col">APELLIDOS</th>
             <th scope="col">CORREO</th>
             <th scope="col">TELEFONO</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>

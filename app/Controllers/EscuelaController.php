@@ -86,7 +86,7 @@ class EscuelaController{
                
         if($result){
 
-            header("Location:./src/views/escuela/show.php");
+            header("Location:./src/views/rp/bootcampView/escuela/show.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }

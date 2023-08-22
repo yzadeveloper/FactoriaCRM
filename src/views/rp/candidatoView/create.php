@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <div class="container-fluid bg-primary-subtle" >
+    <div class="container-sm bg-primary-subtle" >
         <h1>Crear candidato</h1>
         <form action="./store.php" method="POST" autocomplete="off">
             <div class="mb-3">
@@ -44,6 +44,9 @@
                 <label for="exampleInputEmail1" class="form-label">DNI/NIE/Pasaporte</label>
                 <input type="text" name="dni" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
+                <input type="text" name="id_rol" value="1" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="tratamiento_datos" value="0" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
                 <br><br>
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a class="btn btn-danger" href="index.php">Cancelar</a>

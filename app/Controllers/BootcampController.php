@@ -86,7 +86,7 @@ class BootcampController{
                
         if($result){
 
-            header("Location:./src/views/bootcamp/show.php");
+            header("Location:./src/views/rp/bootcampView/show.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }
