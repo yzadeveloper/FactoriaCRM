@@ -109,7 +109,6 @@ class PersonaController{
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
-        
         $stm->bindParam(":nombre",$nombre);
         $stm->bindParam(":apellidos",$apellidos);
         $stm->bindParam(":correo",$correo);

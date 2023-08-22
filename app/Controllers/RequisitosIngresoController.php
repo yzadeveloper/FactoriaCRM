@@ -81,7 +81,7 @@ class RequisitosIngresoController{
                
         if($result){
 
-            header("Location:./src/views/candidato/show.php");
+            header("Location: show.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }

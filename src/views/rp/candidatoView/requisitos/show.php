@@ -15,8 +15,8 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
 </head>
 <body>
 
-<a class="btn btn-primary" href="create.php">Añadir requisito</a>
-<a class="btn btn-primary" href="../show.php">Volver a Candidatos</a>
+<a class="btn btn-primary" href="create.php">Crear requisito</a>
+<a class="btn btn-primary" href="../index.php">Volver a Candidatos</a>
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>

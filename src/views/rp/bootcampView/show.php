@@ -1,11 +1,12 @@
 <?php
 use App\Controllers\BootcampController;
 
+
 require __DIR__ . '../../../../../vendor/autoload.php';
     
     $obj = new BootcampController;
     $results = $obj->index();
-    
+
    
 ?>
 
