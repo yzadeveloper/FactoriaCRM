@@ -1,7 +1,7 @@
 <?php
 use App\Controllers\BootcampController;
 
-require __DIR__ . '../../../../vendor/autoload.php';
+require __DIR__ . '../../../../../vendor/autoload.php';
     
     $obj = new BootcampController;
     $results = $obj->index();
@@ -18,6 +18,7 @@ require __DIR__ . '../../../../vendor/autoload.php';
     <title>Bootcamps</title>
 </head>
 <body>
+<a class="btn btn-primary" href="./create.php"> Crear Bootcamp</a> 
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>

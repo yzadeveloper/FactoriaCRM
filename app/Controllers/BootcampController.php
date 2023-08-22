@@ -22,7 +22,6 @@ class BootcampController{
     }
     function show($id){
         $query ="SELECT * FROM bootcamp where id = :id limit 1";
-        //$query = "SELECT * FROM persona WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
@@ -86,7 +85,7 @@ class BootcampController{
                
         if($result){
 
-            header("Location:./src/views/bootcamp/show.php");
+            header("Location:./src/views/rp/bootcampView/show.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }
@@ -102,7 +101,6 @@ class BootcampController{
         $stm->bindParam(":promocion",$promocion);
         $stm->bindParam(":genero",$genero);
         $stm->bindParam(":patrocinador",$patrocinador);
-            //ver aqui arriba si no esta mal!!!!!//
 
         $result = $stm -> execute();
                
