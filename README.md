@@ -1,5 +1,5 @@
 
-<h1 align="center"> Factoria CRM </h1>
+<h1 align="center"> HackHers </h1>
 
 ![Proyect Factoria CRM](https://github.com/yzadeveloper/FactoriaCRM/blob/develop/src/assets/images/Logo%20FF5%20VECTORIZADO.png)
 
