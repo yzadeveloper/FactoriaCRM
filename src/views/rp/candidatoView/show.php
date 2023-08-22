@@ -7,11 +7,12 @@ use App\Controllers\RequisitosIngresoController;
 require __DIR__ . '../../../../../vendor/autoload.php';
     $obj1 = new PersonaController;
     $result = $obj1->show($_GET['id']);
-    $obj2 = new RequisitosIngresoController;
-    $requisitos = $obj2->index();
+    $obj2 = new PersonaRequisitosIngresoController;
+    $requisitos = $obj2->show($_GET['id']);
+    //var_dump($requisitos);
     //var_dump($requisito);
-    //$obj3 = new PersonaRequisitosIngresoController;
-    //$requisitoPersona = $obj3->show($result['id'], '2');
+    //$obj3 = new RequisitosIngresoController;
+    //$requisitoIngreso = $obj3->show($_GET['id']);
     //var_dump($requisitoPersona);
 
 ?>
@@ -78,6 +79,14 @@ require __DIR__ . '../../../../../vendor/autoload.php';
                 <th scope="col">DNI/NIE/Pasaporte</th>
                 <td scope="col"><?= $result["dni"] ?></td>
             </tr>
+            <tr>
+                <th scope="col">Estado</th>
+                <td scope="col">
+                <?php if($result["id_rol"] === 1){
+                    echo "Candidato";
+                }else{echo "Coder";
+                }?>
+                    
         </tbody>
     </table>
 
@@ -99,17 +108,13 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php if($requisitos): ?>
             <?php foreach($requisitos as $requisito): ?>
                 <tr>
-                    <th><?=$requisito["nombre"] ?></th>
+                    <th><?=$requisito["id_requisito"] ?></th>
                     <th>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" disabled>   
                         </div>
                     </th>
-                    <th><?=$$requisitoPersona["fecha"] ?></th>
-                    <th>
-                        <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-                        <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a> 
-                    </th>
+                    <th><?=$requisito["id_persona"] ?></th>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>

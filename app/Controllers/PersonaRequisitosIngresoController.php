@@ -20,32 +20,32 @@ class PersonaRequisitosIngresoController{
         $this -> connection = new DatabaseConnection($this->server, $this->username, $this->password,$this->database); 
         $this-> connection -> connect();
     }
-    function show($id_persona,$id_requisito){
-        $query ="SELECT * FROM requisitos_ingreso where id_persona = :id ";
+    function show($id_persona){
+        $query ="SELECT * FROM persona_requisitos_ingreso where id_persona = :id_persona ";
         
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id_persona",$id_persona);
-        $stm -> bindParam(":id_requisito",$id_requisito);
-        $stm -> execute();
-        $result = $stm-> fetch(\PDO::FETCH_ASSOC);
         
-        if(!empty($result)){
-                  
+        $stm -> execute();
+        $requisitos = $stm-> fetch(\PDO::FETCH_ASSOC);
+        
+        if(!empty($requisitos)){
+                  echo $requisitos;
         } else{
             echo "El registro no existe";
         }
-        return $result;
+        return $requisitos;
     }
-    function store($id, $requisito, $fecha){
+    function store($id, $requisito){
         
-        $query = "INSERT INTO persona_requisitos_ingreso (id_persona, id_requisitos_ingreso,fecha)
-                  VALUES (?,?,?)";
+        $query = "INSERT INTO persona_requisitos_ingreso (id_persona, id_requisitos_ingreso)
+                  VALUES (?,?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
-        $results = $stm -> execute([$id, $requisito, $fecha]);
+        $results = $stm -> execute([$id, $requisito]);
 
-        header("Location:show.php?id=$id");
+        header("Location:../show.php?id=$id");
         try{
             if(!empty($results)){
                 $statusCode = 200;
@@ -73,7 +73,7 @@ class PersonaRequisitosIngresoController{
     }
     public function delete($id){
 
-        $query = "DELETE FROM requisitos_ingreso WHERE id=:id";
+        $query = "DELETE FROM perosna_requisitos_ingreso WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 

@@ -36,12 +36,12 @@ class PersonaController{
         }
         return $result;
     }
-    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni){
+    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni, $id_rol, $tratamiento_datos){
         
         $query = "INSERT INTO persona (nombre,
          apellidos, correo, telefono, direccion, 
-         codigo_postal, fecha_nacimiento, genero, dni)
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+         codigo_postal, fecha_nacimiento, genero, dni, id_rol, tratamiento_datos)
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
@@ -54,6 +54,8 @@ class PersonaController{
         $fecha_nacimiento,
         $genero,
         $dni,
+        $id_rol,
+        $tratamiento_datos
       ]);
 
        //header("Location: show.php");
@@ -97,9 +99,9 @@ class PersonaController{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
-    public function update($id, $nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento,$genero, $dni){
+    public function update($id, $nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento,$genero, $dni, $id_rol){
 
-        $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, correo = :correo, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, fecha_nacimiento = :fecha_nacimiento, genero = :genero, dni = :dni WHERE id = :id";
+        $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, correo = :correo, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, fecha_nacimiento = :fecha_nacimiento, genero = :genero, dni = :dni, id_rol = :id_rol WHERE id = :id";
 
   
 
@@ -115,6 +117,7 @@ class PersonaController{
         $stm->bindParam(":fecha_nacimiento",$fecha_nacimiento);
         $stm->bindParam(":genero",$genero);
         $stm->bindParam(":dni",$dni);
+        $stm->bindParam(":id_rol",$id_rol);
 
         $result = $stm -> execute();
                

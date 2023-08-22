@@ -18,7 +18,11 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <title>Bootcamps</title>
 </head>
 <body>
+<<<<<<< HEAD
 <a class="btn btn-primary" href="./create.php"> Crear Bootcamp</a> 
+=======
+<a class="btn btn-primary" href="create.php">Crear Bootcamp</a>   
+>>>>>>> 1f902ec96848122e8feed4274fb6763bc3bf9930
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>

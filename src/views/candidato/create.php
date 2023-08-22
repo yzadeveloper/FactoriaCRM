@@ -44,6 +44,13 @@
                 <label for="exampleInputEmail1" class="form-label">DNI/NIE/Pasaporte</label>
                 <input type="text" name="dni" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
+                <input type="text" name="id_rol" value="1" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                <label for="exampleInputEmail1" class="form-label">Acepto los T&C de protección de datos</label>
+                <input class="form-check-input" name="tratamiento_datos" type="checkbox" value="1" id="flexCheckDefault" required>
+                    
+
+                
                 <br><br>
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a class="btn btn-danger" href="../../index.php">Cancelar</a>
