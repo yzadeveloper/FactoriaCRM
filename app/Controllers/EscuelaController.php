@@ -22,7 +22,6 @@ class EscuelaController{
     }
     function show($id){
         $query ="SELECT * FROM escuela where id = :id limit 1";
-        //$query = "SELECT * FROM persona WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
@@ -74,7 +73,6 @@ class EscuelaController{
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         return $results;
         
-        //require("./src/views/candidato/show.php");
     }
     public function delete($id){
 
@@ -86,7 +84,7 @@ class EscuelaController{
                
         if($result){
 
-            header("Location:./src/views/rp/bootcampView/escuela/show.php");
+            header("Location:./src/views/rp/bootcampView/escuela/index.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }
@@ -102,13 +100,12 @@ class EscuelaController{
         $stm->bindParam(":ciudad",$ciudad);
         $stm->bindParam(":zona",$zona);
         $stm->bindParam(":responsable",$responsable);
-            //ver aqui arriba si no esta mal!!!!!//
 
         $result = $stm -> execute();
                
         if($result){
 
-            header("Location:show.php");
+            header("Location:index.php");
         } else{
             echo "No se pudo actualizar el registro con id: $id";
         }

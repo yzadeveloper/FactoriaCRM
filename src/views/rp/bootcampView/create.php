@@ -1,3 +1,11 @@
+<?php
+use App\Controllers\EscuelaController;
+require __DIR__ . '../../../../../vendor/autoload.php';
+$obj= new EscuelaController;
+$results= $obj -> index()
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +32,17 @@
                 <label for="exampleInputEmail1" class="form-label">Patrocinador</label>
                 <input type="text" name="patrocinador" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Escuela</label>
+                    <select class="form-select" aria-label="Default select example" name="id_escuela">
+                    <?php if($results): ?>
+                    <?php foreach($results as $result): ?>  
+                    <option selected value=" <?=$result["id"] ?>"> <?=$result["nombre"] ?></option>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <?php endif; ?>
+                    </select>
+                  
+        
                 <br><br>
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a class="btn btn-danger" href="../../index.php">Cancelar</a>

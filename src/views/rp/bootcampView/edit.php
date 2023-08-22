@@ -1,8 +1,11 @@
 <?php
     use App\Controllers\BootcampController;
+    use App\Controllers\EscuelaController;
     require __DIR__ . '../../../../../vendor/autoload.php';
     $obj = new BootcampController;
     $result = $obj->show($_GET['id']);
+    $obj2 = new EscuelaController;
+    $results = $obj2->index()
 
 
 ?>
@@ -48,6 +51,19 @@
     <div class="col-sm-10">
       <input type="text" name="patrocinador" class="form-control" id="inputPassword" value="<?= $result["patrocinador"]?>">
     </div>
+  </div>
+  <div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Escuela</label>
+  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="id_escuela">
+                    <?php if($results): ?>
+                    <?php foreach($results as $result): ?>  
+                    <option selected value=" <?=$result["id"] ?>"> <?=$result["nombre"] ?></option>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <?php endif; ?>
+                    </select>
+  </div>
   </div>
     <input type="submit" value="Actualizar" class="btn btn-success">
     <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Cancelar</a>
