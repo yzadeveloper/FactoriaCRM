@@ -74,11 +74,12 @@ class PersonaController{
     }
     function index(){
 
-        $query = "SELECT * FROM persona";
+        $query = "SELECT * FROM persona ";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
         $stm -> execute();
+        
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         return $results;
         
@@ -89,6 +90,7 @@ class PersonaController{
         $query = "DELETE FROM persona WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
+
 
         $result = $stm -> execute([":id" => $id]);
                
