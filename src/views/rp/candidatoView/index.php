@@ -20,16 +20,18 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 <body>
 <a class="btn btn-primary" href="./requisitos/create.php">Añadir requisito</a>
 <a class="btn btn-primary" href="create.php">Crear Candidato</a>
-<table class="table table-light table-striped-columns">
+<table class="table table-light table-striped-columns" id="table">
     <thead>
-        <tr>
+        <!-- <tr>
             <th colspan="9" class="text-center"><b>LISTA DE CANDIDATOS</b></th>
-        </tr>
+        </tr> -->
         <tr>
+            <th scope="col">ROL</th>
             <th scope="col">NOMBRE</th>
             <th scope="col">APELLIDOS</th>
             <th scope="col">CORREO</th>
             <th scope="col">TELEFONO</th>
+            <th scope="col">FECHA REGISTRO</th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -37,15 +39,17 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php if($results): ?>
             <?php foreach($results as $result): ?>
                 <tr>
-                    <th><?=$result["nombre"] ?></th>
-                    <th><?=$result["apellidos"] ?></th>
-                    <th><?=$result["correo"] ?></th>
-                    <th><?=$result["telefono"] ?></th>
-                    <th>
+                    <td><?=$result["id_rol"] ?></td>
+                    <td><?=$result["nombre"] ?></td>
+                    <td><?=$result["apellidos"] ?></td>
+                    <td><?=$result["correo"] ?></td>
+                    <td><?=$result["telefono"] ?></td>
+                    <td><?=$result["fecha_registro"] ?></td>
+                    <td>
                         <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
                         <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a> 
-                    </th>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>
@@ -55,6 +59,45 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php endif; ?>
     </tbody>
 </table>
+
+<script type="text/javascript">
+        
+            document.addEventListener("DOMContentLoaded", function() {
+                var table = document.getElementById("table");
+                var headers = table.getElementsByTagName("th");
+                var rows = Array.from(table.getElementsByTagName("tr")).slice(1);
+                var sortOrder = 1; // 1 para orden ascendente, -1 para orden descendente
+
+                // Asignar evento clic a cada encabezado de columna
+                for (var i = 0; i < headers.length; i++) {
+                headers[i].addEventListener("click", sortTable.bind(null, i));
+                headers[i].style.cursor = "pointer";
+                }
+
+                function sortTable(columnIndex) {
+                rows.sort(function(rowA, rowB) {
+                    var rowDataA = rowA.getElementsByTagName("td")[columnIndex].innerText;
+                    var rowDataB = rowB.getElementsByTagName("td")[columnIndex].innerText;
+                    if (rowDataA < rowDataB) {
+                    return -1 * sortOrder;
+                    } else if (rowDataA > rowDataB) {
+                    return 1 * sortOrder;
+                    }
+                    return 0;
+                });
+
+                // Reorganizar las filas en la tabla
+                for (var i = 0; i < rows.length; i++) {
+                    table.tBodies[0].appendChild(rows[i]);
+                }
+
+                // Cambiar el orden de clasificación para el siguiente clic en el mismo encabezado
+                sortOrder *= -1;
+                }
+            });
+
+
+ </script>
     
 </body>
 </html>

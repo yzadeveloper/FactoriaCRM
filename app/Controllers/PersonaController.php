@@ -36,11 +36,11 @@ class PersonaController{
         }
         return $result;
     }
-    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni, $id_rol, $tratamiento_datos){
+    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni, $id_rol, $tratamiento_datos, $fecha_registro){
         
         $query = "INSERT INTO persona (nombre,
          apellidos, correo, telefono, direccion, 
-         codigo_postal, fecha_nacimiento, genero, dni, id_rol, tratamiento_datos)
+         codigo_postal, fecha_nacimiento, genero, dni, id_rol, tratamiento_datos, fecha_registro)
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
        
@@ -55,7 +55,8 @@ class PersonaController{
         $genero,
         $dni,
         $id_rol,
-        $tratamiento_datos
+        $tratamiento_datos,
+        $fecha_registro
       ]);
 
        //header("Location: show.php");
