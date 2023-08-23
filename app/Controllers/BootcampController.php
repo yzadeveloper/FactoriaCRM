@@ -50,7 +50,7 @@ class BootcampController{
         $id_escuela
       ]);
 
-        header("Location: show.php");
+        header("Location: index.php");
         try{
             if(!empty($results)){
                 $statusCode = 200;

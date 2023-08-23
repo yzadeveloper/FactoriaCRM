@@ -35,8 +35,8 @@ $results= $obj -> index()
                     <label for="inputPassword" class="col-sm-2 col-form-label">Escuela</label>
                     <select class="form-select" aria-label="Default select example" name="id_escuela">
                     <?php if($results): ?>
-                    <?php foreach($results as $result): ?>  
-                    <option selected value=" <?=$result["id_escuela"] ?>"> <?=$result["nombre_escuela"] ?></option>
+                    <?php foreach($results as $resultado):?>  
+                    <option selected value="<?=$resultado["id_escuela"]?>"><?=$resultado["nombre_escuela"] ?></option>
                     <?php endforeach; ?>
                     <?php else: ?>
                     <?php endif; ?>
