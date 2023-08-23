@@ -9,7 +9,7 @@
 <body>
     <h1>Bienvenido RP</h1>
     <a class="btn btn-primary" href="./bootcampView/index.php">Bootcamp</a>   
-    <a class="btn btn-primary" href="./candidatoView/index.php">Candidatos</a>
+    <a class="btn btn-primary" href="./personaView/index.php">Candidatos</a>
     <a class="btn btn-primary" href="">Coders</a>
 
     
