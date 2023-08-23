@@ -2,7 +2,7 @@
 
 use App\Controllers\EscuelaController;
 
-    require __DIR__ . '../../../../vendor/autoload.php';
+    require __DIR__ . '../../../../../../vendor/autoload.php';
     $obj = new EscuelaController;
     $result = $obj->show($_GET['id']);
 
