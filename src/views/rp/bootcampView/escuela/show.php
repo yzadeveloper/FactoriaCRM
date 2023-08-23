@@ -18,7 +18,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <div class="pb-3">
         <a href="index.php" class="btn btn-primary">Volver a Escuela</a>
     </div>
-    <h2 class="text-center">DETALLES DE ESCUELA <?= $result["nombre"].' '.$result["zona"]?></h2>
+    <h2 class="text-center">DETALLES DE ESCUELA <?= $result["nombre_escuela"].' '.$result["zona"]?></h2>
     <table class="table container-fluid">
         <thead>
         <div class="pb-3">
@@ -35,7 +35,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             </tr>
             <tr>
                 <th scope="col">Nombre</th>
-                <td scope="col"><?= $result["nombre"] ?></td>
+                <td scope="col"><?= $result["nombre_escuela"] ?></td>
             </tr>
             <tr>
                 <th scope="col">Ciudad</th>

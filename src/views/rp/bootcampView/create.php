@@ -21,7 +21,7 @@ $results= $obj -> index()
         <form action="./store.php" method="POST" autocomplete="off">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" name="nombre" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="nombre_bootcamp" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 <label for="exampleInputEmail1" class="form-label">Promoción</label>
                 <input type="text" name="promocion" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -35,8 +35,8 @@ $results= $obj -> index()
                     <label for="inputPassword" class="col-sm-2 col-form-label">Escuela</label>
                     <select class="form-select" aria-label="Default select example" name="id_escuela">
                     <?php if($results): ?>
-                    <?php foreach($results as $result): ?>  
-                    <option selected value=" <?=$result["id"] ?>"> <?=$result["nombre"] ?></option>
+                    <?php foreach($results as $resultado):?>  
+                    <option selected value="<?=$resultado["id_escuela"]?>"><?=$resultado["nombre_escuela"] ?></option>
                     <?php endforeach; ?>
                     <?php else: ?>
                     <?php endif; ?>

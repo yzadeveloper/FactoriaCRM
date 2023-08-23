@@ -35,7 +35,7 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
         <?php if($results): ?>
             <?php foreach($results as $result): ?>
                 <tr>
-                    <th><?=$result["nombre"] ?></th>
+                    <th><?=$result["nombre_escuela"] ?></th>
                     <th><?=$result["ciudad"] ?></th>
                     <th><?=$result["zona"] ?></th>
                     <th><?=$result["responsable"] ?></th>

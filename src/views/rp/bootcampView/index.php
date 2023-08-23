@@ -1,13 +1,10 @@
 <?php
 use App\Controllers\BootcampController;
-use App\Controllers\EscuelaController;
 
 require __DIR__ . '../../../../../vendor/autoload.php';
     
     $obj = new BootcampController;
     $results = $obj->index();
-    //$obj2= new EscuelaController;   
-    //$result= $obj2 -> index()
    
 ?>
 
@@ -26,6 +23,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <th colspan="9" class="text-center"><b>LISTA DE BOOTCAMPS</b></th>
         </tr>
         <tr>
+            <th scope="col">ID</th>
             <th scope="col">NOMBRE</th>
             <th scope="col">PROMOCIÓN</th>
             <th scope="col">GÉNERO</th>
@@ -37,11 +35,12 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php if($results): ?>
             <?php foreach($results as $result): ?>
                 <tr>
-                    <th><?=$result["nombre"] ?></th>
+                <th><?=$result["id"] ?></th>
+                    <th><?=$result["nombre_bootcamp"] ?></th>
                     <th><?=$result["promocion"] ?></th>
                     <th><?=$result["genero"] ?></th>
                     <th><?=$result["patrocinador"] ?></th>
-                    <th><?=$result["id_escuela"] ?></th>
+                    <th><?=$result["nombre_escuela"] ?></th>
                     <th>
                         <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>

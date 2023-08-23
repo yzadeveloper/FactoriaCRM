@@ -19,7 +19,7 @@ $results= $obj -> index()
         <form action="./store.php" method="POST" autocomplete="off">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" name="nombre" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="nombre_escuela" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 <label for="exampleInputEmail1" class="form-label">Ciudad</label>
                 <input type="text" name="ciudad" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
