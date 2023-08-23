@@ -6,8 +6,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     
     $obj = new BootcampController;
     $results = $obj->index();
-    $obj2= new EscuelaController;   
-    $result2= $obj2 -> index()
+    //$obj2= new EscuelaController;   
+    //$result= $obj2 -> index()
    
 ?>
 
@@ -41,7 +41,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
                     <th><?=$result["promocion"] ?></th>
                     <th><?=$result["genero"] ?></th>
                     <th><?=$result["patrocinador"] ?></th>
-                    <th><?=$result2["id-escuela"] ?></th>
+                    <th><?=$result["id_escuela"] ?></th>
                     <th>
                         <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
