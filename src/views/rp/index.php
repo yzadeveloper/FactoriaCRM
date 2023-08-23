@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        h1 {
+            color: #FF4700;
+            
+        }
+
+        .custom-btn {
+            background-color: #FF4700; 
+            border-color: #FF4700; 
+            color: white;
+            
+        }
+        .custom-btn:hover {
+            background-color: white; 
+            border-color: #FF4700;
+            color: #FF4700; 
+        }
+
+        body {
+            border: 2px solid #FF4700;
+            padding: 20px; 
+            text-align: center;
+            
+        }
+
+    </style>
     <title>Bienvenidos a Factoría F5</title>
 </head>
 <body>
     <h1>Bienvenido RP</h1>
-    <a class="btn btn-primary" href="./bootcampView/index.php">Bootcamp</a>   
-    <a class="btn btn-primary" href="./personaView/index.php">Candidatos</a>
-    <a class="btn btn-primary" href="">Coders</a>
+    <a class="btn custom-btn" href="./bootcampView/index.php">Bootcamp</a>   
+    <a class="btn custom-btn" href="./personaView/index.php">Candidatos</a>
+    <a class="btn custom-btn" href="">Coders</a>
 
     
 </body>
