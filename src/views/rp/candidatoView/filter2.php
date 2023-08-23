@@ -33,6 +33,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <option value="all">Todos</option>
         <option value="1">Candidato</option>
         <option value="2">Códer</option>
+        <option value="3">Excóder</option>
+        <option value="4">RP</option>
     </select>
 </div>
 <table class="table table-light table-striped-columns" id="table">
