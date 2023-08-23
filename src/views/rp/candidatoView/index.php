@@ -60,7 +60,104 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     </tbody>
 </table>
 
+<div class="pagination-container">
+    <ul class="pagination justify-content-center" id="pagination"></ul>
+</div>
+
 <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var table = document.getElementById("table");
+        var headers = table.getElementsByTagName("th");
+        var rows = Array.from(table.getElementsByTagName("tr")).slice(1);
+        var sortOrder = 1; // 1 para orden ascendente, -1 para orden descendente
+
+        var itemsPerPage = 5; // Cambiar la cantidad de elementos por página
+        var currentPage = 1;
+
+        // Asignar evento clic a cada encabezado de columna
+        for (var i = 0; i < headers.length; i++) {
+            headers[i].addEventListener("click", sortTable.bind(null, i));
+            headers[i].style.cursor = "pointer";
+        }
+
+        function sortTable(columnIndex) {
+            rows.sort(function(rowA, rowB) {
+                var rowDataA = rowA.getElementsByTagName("td")[columnIndex].innerText;
+                var rowDataB = rowB.getElementsByTagName("td")[columnIndex].innerText;
+                if (rowDataA < rowDataB) {
+                    return -1 * sortOrder;
+                } else if (rowDataA > rowDataB) {
+                    return 1 * sortOrder;
+                }
+                return 0;
+            });
+
+            // Reorganizar las filas en la tabla
+            for (var i = 0; i < rows.length; i++) {
+                table.tBodies[0].appendChild(rows[i]);
+            }
+
+            // Cambiar el orden de clasificación para el siguiente clic en el mismo encabezado
+            sortOrder *= -1;
+
+            // Actualizar la paginación después de ordenar
+            currentPage = 1; // Regresar a la primera página
+            updatePagination();
+        }
+
+        function displayRows(startIndex, endIndex) {
+            for (var i = 0; i < rows.length; i++) {
+                if (i >= startIndex && i < endIndex) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        function renderPagination() {
+            var totalPages = Math.ceil(rows.length / itemsPerPage);
+            var paginationElement = document.getElementById("pagination");
+            paginationElement.innerHTML = "";
+
+            for (var i = 1; i <= totalPages; i++) {
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.href = "#";
+                a.textContent = i;
+                a.classList.add("page-link");
+
+                a.addEventListener("click", function(page) {
+                    return function(event) {
+                        event.preventDefault();
+                        currentPage = page;
+                        updatePagination();
+                    };
+                }(i));
+
+                li.appendChild(a);
+                li.classList.add("page-item");
+                if (i === currentPage) {
+                    li.classList.add("active");
+                }
+
+                paginationElement.appendChild(li);
+            }
+        }
+
+        function updatePagination() {
+            var startIndex = (currentPage - 1) * itemsPerPage;
+            var endIndex = currentPage * itemsPerPage;
+            displayRows(startIndex, endIndex);
+            renderPagination();
+        }
+
+        displayRows(0, itemsPerPage);
+        renderPagination();
+    });
+</script>
+
+<!-- <script type="text/javascript">
         
             document.addEventListener("DOMContentLoaded", function() {
                 var table = document.getElementById("table");
@@ -97,7 +194,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             });
 
 
- </script>
+ </script> -->
     
 </body>
 </html>
