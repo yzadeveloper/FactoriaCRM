@@ -2,15 +2,12 @@
 
 use App\Controllers\PersonaController;
 use App\Controllers\PersonaRequisitosIngresoController;
-use PHPUnit\Framework\Constraint\IsEmpty;
-
-
 require __DIR__ . '../../../../../vendor/autoload.php';
     $obj1 = new PersonaController;
     $result = $obj1->show($_GET['id']);
     $obj2 = new PersonaRequisitosIngresoController;
     $requisitos = $obj2->show($_GET['id']);
-   //var_dump($requisitos);
+    //var_dump($requisitos);
 ?>
 
 <!DOCTYPE html>
@@ -79,46 +76,42 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <tr>
                 <th scope="col">Estado</th>
                 <td scope="col">
-                <?php if($result["id_rol"] === 1){
+                <?php /*if($result["id_rol"] === 1){
                     echo "Candidato";
                 }else{echo "Coder";
-                }?>
+                }*/?>
                     
         </tbody>
     </table>
 
     <h3 class="text-center">REQUISITOS DE ACCESO</h3>
+    <div class="pb-3">
+        <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Añadir</a>
+    </div>
     <table class="table container-fluid">
         <thead>        
-        <div class="pb-3">
-                <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-        </div>
             <tr>
-
                 <th>REQUISITO</th>
                 <th>FECHA REGISTRO</th>
-                <th></th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
-        <?php if($requisitos): ?>
+            <?php if($requisitos): ?>
             <?php foreach($requisitos as $requisito): ?>
-                <tr>
-                    <th><?=$requisito["nombre_requisitos"] ?></th>
-                    <th><?=$requisito["fecha_registro"] ?></th>
-                    <?php endforeach; ?>
-        
-                    <th>
-                    <div class="pb-3">
-                        <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-                        <a href="../personarequisito/delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>
-                        
-                    </div>
-                    </th>
-                </tr>
-                <?php else: ?>
             <tr>
-                <td colspan="5" class="text-center">No hay requisitos registrados</td>
+                <th><?=$requisito["nombre_requisitos"] ?></th>
+                <th><?=$requisito["fecha_registro"] ?></th>
+                <th>
+                <div class="pb-3">
+                    <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>
+                </div>
+                </th>
+            </tr>
+        <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+            <td colspan="3" class="text-center">No hay requisitos registrados</td>
             </tr>
         <?php endif; ?>
         </tbody>

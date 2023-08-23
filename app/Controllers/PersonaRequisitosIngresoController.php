@@ -20,23 +20,18 @@ class PersonaRequisitosIngresoController{
         $this -> connection = new DatabaseConnection($this->server, $this->username, $this->password,$this->database); 
         $this-> connection -> connect();
     }
-    function show($id_persona){
-        $query ="SELECT * FROM persona_requisitos_ingreso 
+    function show($id){
+        $query = "SELECT * FROM persona_requisitos_ingreso 
         LEFT JOIN persona ON persona.id = persona_requisitos_ingreso.id_persona
-        LEFT JOIN requisitos_ingreso ON requisitos_ingreso.id = persona_requisitos_ingreso.id_requisitos_ingreso
-                    WHERE id_persona = :id_persona limit 6";
+        LEFT JOIN requisitos_ingreso ON requisitos_ingreso.id_requisitos_ingreso = persona_requisitos_ingreso.id_requisitos_ingreso
+                    WHERE id = :id ";
         
         $stm = $this->connection -> get_connection()->prepare($query);
-        $stm -> bindParam(":id_persona",$id_persona);
+        $stm -> bindParam(":id",$id);
         
         $stm -> execute();
-        $requisitos = $stm-> fetch(\PDO::FETCH_ASSOC);
+        $requisitos = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         
-        if(!empty($requisitos)){
-                  echo $id_persona;
-        } else{
-            echo "No hay requisitos registrados";
-        }
         return $requisitos;
     }
     function store($id, $requisito){
@@ -48,7 +43,7 @@ class PersonaRequisitosIngresoController{
         $stm = $this->connection -> get_connection()->prepare($query);
         $results = $stm -> execute([$id, $requisito]);
 
-        header("Location:../show.php?id=$id");
+        header("Location:../edit.php?id=$id");
         try{
             if(!empty($results)){
                 $statusCode = 200;
@@ -66,8 +61,8 @@ class PersonaRequisitosIngresoController{
     function index(){
 
         $query = "SELECT * FROM persona_requisitos_ingreso 
-                LEFT JOIN persona ON persona.id = persona_requisitos_ingreso.id_persona
-                LEFT JOIN requisitos_ingreso ON requisitos_ingreso.id = persona_requisitos_ingreso.id_persona";
+                INNER JOIN persona ON persona.id = persona_requisitos_ingreso.id_persona
+                INNER JOIN requisitos_ingreso ON requisitos_ingreso.id_requisitos_ingreso = persona_requisitos_ingreso.id_requisitos_ingreso";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
@@ -78,19 +73,19 @@ class PersonaRequisitosIngresoController{
         //require("./src/views/candidato/show.php");
     }
     
-    public function delete($id){
+    public function delete($id_persona){
 
-        $query = "DELETE FROM perosna_requisitos_ingreso WHERE id=:id";
+        $query = "DELETE FROM persona_requisitos_ingreso WHERE id_persona=:id_persona, id_requisito=:id_requisito";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
-        $result = $stm -> execute([":id" => $id]);
+        $result = $stm -> execute([":id_persona" => $id_persona]);
                
         if($result){
 
-            header("Location:./src/views/candidato/show.php");
+            //header("Location:./src/views/personaView/show.php?id=$id");
         } else{
-            echo "No se pudo eliminar el requisito con id: $id";
+            echo "No se pudo eliminar el requisito con id: $id_persona";
         }
     }
     public function update($id, $nombre, $fecha){

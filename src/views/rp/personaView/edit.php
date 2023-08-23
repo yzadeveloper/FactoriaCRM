@@ -6,14 +6,10 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 
     $obj = new PersonaController;
     $result = $obj->show($_GET['id']);
-    $obj3 = new PersonaRequisitosIngresoController;
-    $requisitoPersona = $obj3->index();
-    var_dump($requisitoPersona);
-    $obj2 = new RequisitosIngresoController;
-    $requisitos = $obj2->index();
-
-
-
+    $obj2 = new PersonaRequisitosIngresoController;
+    $requisitos = $obj2->show($_GET['id']);
+    $obj3 = new RequisitosIngresoController;
+    $results = $obj3->index();
 
 ?>
 <!DOCTYPE html>
@@ -107,30 +103,51 @@ require __DIR__ . '../../../../../vendor/autoload.php';
   <input type="submit" value="Actualizar" class="btn btn-success">
   <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Volver</a>
 </form>
+
   <h2>Requisitos de acceso</h2>
-  <?php if($requisitos): ?>
-              <?php foreach($requisitos as $requisito): ?>
-
-              <form action="./personarequisito/store.php" method="post" autocomplete="off">
-                <div class="mb-3 row">
-                  <label for="inputPassword" class="col-sm-2 col-form-label"><?=$requisito["nombre_requisitos"] ?></label>
-                  <input type="text" name="id_persona" value="<?=$result["id"]?>" class="form-control" id="inputPassword" hidden>
-                  <input type="text" name="id_requisitos_ingreso" value="<?=$requisito["id"]?>" class="form-control" id="inputPassword" hidden>
-                  <div class="col-sm-10">
-                    <input type="submit" value="Añadir requisito" class="btn btn-success">
-                  </div>
-                </div>
-              </form>
+  <form action="./personarequisito/store.php" method="post" autocomplete="off">
+      <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Requisito</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" name="id_requisitos_ingreso">
+            <?php if($results): ?>
+            <?php foreach($results as $resultado): ?>
+            <option selected value="<?=$resultado["id_requisitos_ingreso"]?>"><?=$resultado["nombre_requisitos"] ?></option>
             <?php endforeach; ?>
-        <?php else: ?>
-        <?php endif; ?>
-        
+            <?php else: ?>
+            <?php endif; ?>
+          </select>
+          <input type="text" name="id_persona" value="<?=$result["id"]?>" class="form-control" id="inputPassword" hidden>
+          <br>
+          <input type="submit" value="Añadir requisito" class="btn btn-success">
         </div>
+      </div>
+    </form>
+  <table class="table container-fluid">
+        <thead>        
+            <tr>
+                <th>REQUISITO</th>
+                <th>FECHA REGISTRO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if($requisitos): ?>
+            <?php foreach($requisitos as $requisito): ?>
+            <tr>
+                <th><?=$requisito["nombre_requisitos"] ?></th>
+                <th><?=$requisito["fecha_registro"] ?></th>
+                <th><a href="./personarequisito/delete.php?id_persona=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a></th>
+            </tr>
+        <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+            <td colspan="3" class="text-center">No hay requisitos registrados</td>
+            </tr>
+        <?php endif; ?>
+        </tbody>
+    </table>
     <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Volver</a>
-
-
-
-    
+  
 </body>
 </html>
 

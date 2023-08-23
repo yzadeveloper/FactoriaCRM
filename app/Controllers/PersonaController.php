@@ -22,14 +22,12 @@ class PersonaController{
     }
     function show($id){
         $query ="SELECT * FROM persona where id = :id limit 1";
-        //$query = "SELECT * FROM persona WHERE id=:id";
-
+        
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
         $stm -> execute();
         $result = $stm-> fetch(\PDO::FETCH_ASSOC);
         
-
         return $result;
     }
     function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni, $id_rol, $tratamiento_datos){
@@ -85,7 +83,7 @@ class PersonaController{
     }
     public function delete($id){
 
-        $query = "DELETE FROM persona WHERE id=:id";
+        $query = "DELETE FROM persona WHERE id = :id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
