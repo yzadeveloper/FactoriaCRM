@@ -22,7 +22,6 @@ class BootcampController{
     }
     function show($id){
         $query ="SELECT * FROM bootcamp where id = :id limit 1";
-        //$query = "SELECT * FROM persona WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
@@ -36,11 +35,11 @@ class BootcampController{
         }
         return $result;
     }
-    function store($nombre, $promocion, $genero, $patrocinador){
+    function store($nombre, $promocion, $genero, $patrocinador, $id_escuela){
         
         $query = "INSERT INTO bootcamp (nombre,
-         promocion, genero, patrocinador)
-                  VALUES (?, ?, ?, ?)";
+         promocion, genero, patrocinador, id_escuela)
+                  VALUES (?, ?, ?, ?, ?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
@@ -48,6 +47,7 @@ class BootcampController{
         $promocion,
         $genero,
         $patrocinador,
+        $id_escuela
       ]);
 
         header("Location: show.php");
@@ -74,7 +74,6 @@ class BootcampController{
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         return $results;
         
-        //require("./src/views/candidato/show.php");
     }
     public function delete($id){
 
@@ -86,14 +85,14 @@ class BootcampController{
                
         if($result){
 
-            header("Location:./src/views/rp/bootcampView/show.php");
+            header("Location:./src/views/rp/bootcampView/index.php");
         } else{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
-    public function update($id, $nombre, $promocion, $genero, $patrocinador){
+    public function update($id, $nombre, $promocion, $genero, $patrocinador, $id_escuela){
 
-        $query = "UPDATE bootcamp SET nombre = :nombre, promocion = :promocion, genero = :genero, patrocinador = :patrocinador WHERE id = :id";
+        $query = "UPDATE bootcamp SET nombre = :nombre, promocion = :promocion, genero = :genero, patrocinador = :patrocinador, id_escuela = :id_escuela WHERE id = :id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
@@ -102,13 +101,13 @@ class BootcampController{
         $stm->bindParam(":promocion",$promocion);
         $stm->bindParam(":genero",$genero);
         $stm->bindParam(":patrocinador",$patrocinador);
-            //ver aqui arriba si no esta mal!!!!!//
+        $stm->bindParam(":id_escuela",$id_escuela);
 
         $result = $stm -> execute();
                
         if($result){
 
-            header("Location:show.php");
+            header("Location:index.php");
         } else{
             echo "No se pudo actualizar el registro con id: $id";
         }

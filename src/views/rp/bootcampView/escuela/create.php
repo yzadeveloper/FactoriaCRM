@@ -1,3 +1,9 @@
+<?php
+use App\Controllers\EscuelaController;
+require __DIR__ . '../../../../../vendor/autoload.php';
+$obj= new EscuelaController;
+$results= $obj -> index()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
