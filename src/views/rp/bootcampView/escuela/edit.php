@@ -29,7 +29,7 @@ use App\Controllers\EscuelaController;
   <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Nombre</label>
     <div class="col-sm-10">
-      <input type="text" name="nombre" class="form-control" id="inputPassword" value="<?= $result["nombre"]?>">
+      <input type="text" name="nombre_escuela" class="form-control" id="inputPassword" value="<?= $result["nombre_escuela"]?>">
     </div>
   </div>
   <div class="mb-3 row">

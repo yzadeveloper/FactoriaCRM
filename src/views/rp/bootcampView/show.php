@@ -6,7 +6,6 @@ use App\Controllers\BootcampController;
 require __DIR__ . '../../../../../vendor/autoload.php';
     $obj1 = new BootcampController;
     $result = $obj1->show($_GET['id']);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +23,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <a href="index.php" class="btn btn-primary">Volver a Bootcamp</a>
         
     </div>
-    <h2 class="text-center">LISTA DE BOOTCAMP <?= $result["nombre"]?></h2>
+    <h2 class="text-center">LISTA DE BOOTCAMP <?= $result["nombre_bootcamp"]?></h2>
     <table class="table container-fluid">
         <thead>
         <div class="pb-3">

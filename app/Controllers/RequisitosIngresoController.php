@@ -36,20 +36,20 @@ class RequisitosIngresoController{
         }
         return $result;
     }
-    function store($nombre){
+    function store($nombre_requisitos){
         
-        $query = "INSERT INTO requisitos_ingreso (nombre)
+        $query = "INSERT INTO requisitos_ingreso (nombre_requisitos)
                   VALUES (?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
-        $results = $stm -> execute([$nombre]);
+        $results = $stm -> execute([$nombre_requisitos]);
 
         header("Location: show.php");
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el requisito: '{$nombre['nombre']}'
+                $response = "Se registró exitosamente el requisito: '{$nombre_requisitos['nombre_requisitos']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
@@ -86,15 +86,15 @@ class RequisitosIngresoController{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
-    public function update($id, $nombre){
+    public function update($id, $nombre_requisitos){
 
-        $query = "UPDATE requisitos_ingreso SET nombre = :nombre WHERE id = :id";
+        $query = "UPDATE requisitos_ingreso SET nombre_requisitos = :nombre_requisitos WHERE id = :id";
 
   
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
-        $stm->bindParam(":nombre",$nombre);
+        $stm->bindParam(":nombre",$nombre_requisitos);
 
 
         $result = $stm -> execute();

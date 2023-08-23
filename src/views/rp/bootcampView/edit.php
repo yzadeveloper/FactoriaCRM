@@ -30,7 +30,7 @@
   <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Nombre</label>
     <div class="col-sm-10">
-      <input type="text" name="nombre" class="form-control" id="inputPassword" value="<?= $result["nombre"]?>">
+      <input type="text" name="nombre_bootcamp" class="form-control" id="inputPassword" value="<?= $result["nombre_bootcamp"]?>">
     </div>
   </div>
   <div class="mb-3 row">
@@ -53,21 +53,21 @@
     </div>
   </div>
   <div class="mb-3 row">
-  <label for="inputPassword" class="col-sm-2 col-form-label">Escuela</label>
-  <div class="col-sm-10">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Escuela</label>
+    <div class="col-sm-10">
                     <select class="form-select" aria-label="Default select example" name="id_escuela">
-                    <?php if($results): ?>
-                    <?php foreach($results as $result): ?>  
-                    <option selected value=" <?=$result["id"] ?>"> <?=$result["nombre"] ?></option>
+                    <?php if($results):?>
+                    <?php foreach($results as $resultado):?>  
+                    <option selected value="<?=$resultado["id_escuela"]?>"><?=$resultado["nombre_escuela"] ?></option>
                     <?php endforeach; ?>
                     <?php else: ?>
                     <?php endif; ?>
                     </select>
-  </div>
-  </div>
-    <input type="submit" value="Actualizar" class="btn btn-success">
-    <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Cancelar</a>
     </div>
+  </div>
+  <div>
+    <input type="submit" value="Actualizar" class="btn btn-success">
+    <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger"> Cancelar </a>
   </div>
 </form>
     
