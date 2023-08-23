@@ -5,7 +5,7 @@ require __DIR__ . '../../../../vendor/autoload.php';
 
     $obj = new PersonaController;
     $obj->delete($_GET['id']);
-    header("Location: show.php")
+    header("Location: show.php");
 
 
 ?>

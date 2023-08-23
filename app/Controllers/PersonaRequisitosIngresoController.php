@@ -21,7 +21,10 @@ class PersonaRequisitosIngresoController{
         $this-> connection -> connect();
     }
     function show($id_persona){
-        $query ="SELECT * FROM persona_requisitos_ingreso where id_persona = :id_persona ";
+        $query ="SELECT * FROM persona_requisitos_ingreso 
+        LEFT JOIN persona ON persona.id = persona_requisitos_ingreso.id_persona
+        LEFT JOIN requisitos_ingreso ON requisitos_ingreso.id = persona_requisitos_ingreso.id_requisitos_ingreso
+                    WHERE id_persona = :id_persona limit 6";
         
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id_persona",$id_persona);
@@ -30,9 +33,9 @@ class PersonaRequisitosIngresoController{
         $requisitos = $stm-> fetch(\PDO::FETCH_ASSOC);
         
         if(!empty($requisitos)){
-                  echo $requisitos;
+                  echo $id_persona;
         } else{
-            echo "El registro no existe";
+            echo "No hay requisitos registrados";
         }
         return $requisitos;
     }
@@ -59,9 +62,12 @@ class PersonaRequisitosIngresoController{
         }
         
     }
+    
     function index(){
 
-        $query = "SELECT * FROM persona_requisitos_ingreso";
+        $query = "SELECT * FROM persona_requisitos_ingreso 
+                LEFT JOIN persona ON persona.id = persona_requisitos_ingreso.id_persona
+                LEFT JOIN requisitos_ingreso ON requisitos_ingreso.id = persona_requisitos_ingreso.id_persona";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
@@ -71,6 +77,7 @@ class PersonaRequisitosIngresoController{
         
         //require("./src/views/candidato/show.php");
     }
+    
     public function delete($id){
 
         $query = "DELETE FROM perosna_requisitos_ingreso WHERE id=:id";
@@ -83,7 +90,7 @@ class PersonaRequisitosIngresoController{
 
             header("Location:./src/views/candidato/show.php");
         } else{
-            echo "No se pudo eliminar el registro con id: $id";
+            echo "No se pudo eliminar el requisito con id: $id";
         }
     }
     public function update($id, $nombre, $fecha){

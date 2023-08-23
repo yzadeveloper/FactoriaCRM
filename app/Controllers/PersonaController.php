@@ -29,18 +29,14 @@ class PersonaController{
         $stm -> execute();
         $result = $stm-> fetch(\PDO::FETCH_ASSOC);
         
-        if(!empty($result)){
-                  
-        } else{
-            echo "El registro no existe";
-        }
+
         return $result;
     }
-    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni, $id_rol, $tratamiento_datos, $fecha_registro){
+    function store($nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento, $genero, $dni, $id_rol, $tratamiento_datos){
         
         $query = "INSERT INTO persona (nombre,
          apellidos, correo, telefono, direccion, 
-         codigo_postal, fecha_nacimiento, genero, dni, id_rol, tratamiento_datos, fecha_registro)
+         codigo_postal, fecha_nacimiento, genero, dni, id_rol, tratamiento_datos)
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
        
@@ -56,7 +52,7 @@ class PersonaController{
         $dni,
         $id_rol,
         $tratamiento_datos,
-        $fecha_registro
+        
       ]);
 
        //header("Location: show.php");
@@ -75,11 +71,12 @@ class PersonaController{
     }
     function index(){
 
-        $query = "SELECT * FROM persona ";
+        $query = "SELECT * FROM persona";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
         $stm -> execute();
+        
         
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         return $results;

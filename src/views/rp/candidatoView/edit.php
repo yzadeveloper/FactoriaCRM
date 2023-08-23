@@ -1,12 +1,18 @@
 <?php
 use App\Controllers\PersonaController;
+use App\Controllers\PersonaRequisitosIngresoController;
 use App\Controllers\RequisitosIngresoController;
 require __DIR__ . '../../../../../vendor/autoload.php';
 
     $obj = new PersonaController;
     $result = $obj->show($_GET['id']);
+    $obj3 = new PersonaRequisitosIngresoController;
+    $requisitoPersona = $obj3->index($_GET['id']);
+    var_dump($requisitoPersona);
     $obj2 = new RequisitosIngresoController;
     $requisitos = $obj2->index();
+
+
 
 
 ?>
@@ -102,31 +108,27 @@ require __DIR__ . '../../../../../vendor/autoload.php';
   <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Volver</a>
 </form>
   <h2>Requisitos de acceso</h2>
-  
-        <?php if($requisitos): ?>
-            <?php foreach($requisitos as $requisito): ?>
+  <?php if($requisitos): ?>
+              <?php foreach($requisitos as $requisito): ?>
 
-              <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label"><?=$requisito["nombre"] ?></label>
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
               <form action="./personarequisito/store.php" method="post" autocomplete="off">
-                <div class="col-sm-10 form-check form-switch">
+                <div class="mb-3 row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label"><?=$requisito["nombre_requisitos"] ?></label>
                   <input type="text" name="id_persona" value="<?=$result["id"]?>" class="form-control" id="inputPassword" hidden>
                   <input type="text" name="id_requisitos_ingreso" value="<?=$requisito["id"]?>" class="form-control" id="inputPassword" hidden>
-                
+                  <div class="col-sm-10">
+                    <input type="submit" value="Añadir requisito" class="btn btn-success">
+                  </div>
                 </div>
-                <input type="submit" value="Actualizar" class="btn btn-success">
               </form>
             <?php endforeach; ?>
         <?php else: ?>
         <?php endif; ?>
         
         </div>
-
-    <input type="submit" value="Actualizar" class="btn btn-success">
     <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Volver</a>
-</form>
-</form>
+
+
 
     
 </body>

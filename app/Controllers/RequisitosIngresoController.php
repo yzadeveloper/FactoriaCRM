@@ -27,14 +27,14 @@ class RequisitosIngresoController{
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
         $stm -> execute();
-        $result = $stm-> fetch(\PDO::FETCH_ASSOC);
+        $requisitos = $stm-> fetch(\PDO::FETCH_ASSOC);
         
-        if(!empty($result)){
+        if(!empty($requisitos)){
                   
         } else{
             echo "El registro no existe";
         }
-        return $result;
+        return $requisitos;
     }
     function store($nombre){
         
@@ -67,9 +67,9 @@ class RequisitosIngresoController{
 
         $stm -> execute();
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
+        
         return $results;
         
-        //require("./src/views/candidato/show.php");
     }
     public function delete($id){
 
@@ -103,7 +103,7 @@ class RequisitosIngresoController{
 
             header("Location:show.php");
         } else{
-            echo "No se pudo actualizar el registro con id: $id";
+            echo "No se pudo actualizar el requisito: $nombre";
         }
     }
 
