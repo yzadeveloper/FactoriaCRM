@@ -7,7 +7,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     $obj = new PersonaController;
     $result = $obj->show($_GET['id']);
     $obj3 = new PersonaRequisitosIngresoController;
-    $requisitoPersona = $obj3->index($_GET['id']);
+    $requisitoPersona = $obj3->index();
     var_dump($requisitoPersona);
     $obj2 = new RequisitosIngresoController;
     $requisitos = $obj2->index();
