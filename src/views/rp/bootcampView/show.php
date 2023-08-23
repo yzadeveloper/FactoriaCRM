@@ -36,7 +36,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
   
             <tr>
                 <th scope="col">Id Escuela</th>
-                <td scope="col"><?= $result["id_escuela"] ?></td>
+                <td scope="col"><?= $result["nombre_escuela"] ?></td>
             </tr>
             <tr>
                 <th scope="col">Promoción</th>

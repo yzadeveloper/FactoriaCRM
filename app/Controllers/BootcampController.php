@@ -21,7 +21,8 @@ class BootcampController{
         $this-> connection -> connect();
     }
     function show($id){
-        $query ="SELECT * FROM bootcamp where id = :id limit 1";
+//$query ="SELECT * FROM bootcamp where id = :id limit 1";
+        $query = "SELECT * FROM bootcamp LEFT JOIN escuela ON escuela.id_escuela = bootcamp.id_escuela where id = :id limit 1";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
