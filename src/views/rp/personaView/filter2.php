@@ -6,6 +6,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     $obj = new PersonaController;
     $results = $obj->index();
     
+    
    
 ?>
 
@@ -16,10 +17,26 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Candidatos Factoría F5</title>
+    <title>Filtrar Tabla</title>
+    <!-- Agregar enlaces a Bootstrap y jQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <a class="btn btn-primary" href="./requisitos/create.php">Añadir requisito</a>
 <a class="btn btn-primary" href="create.php">Crear Candidato</a>
+<div class="filter-container">
+    <label for="rolFilter">Filtrar por rol:</label>
+    <select id="rolFilter" class="form-control">
+        <option value="all">Todos</option>
+        <option value="1">Candidato</option>
+        <option value="2">Códer</option>
+        <option value="3">Excóder</option>
+        <option value="4">RP</option>
+    </select>
+</div>
 <table class="table table-light table-striped-columns" id="table">
     <thead>
         <!-- <tr>
@@ -95,9 +112,34 @@ require __DIR__ . '../../../../../vendor/autoload.php';
                 sortOrder *= -1;
                 }
             });
+            //Empieza el filtrado del dropdown
+
+            document.addEventListener("DOMContentLoaded", function() {
+            var table = document.getElementById("table");
+            var rows = Array.from(table.getElementsByTagName("tr")).slice(1);
+            var rolFilter = document.getElementById("rolFilter");
+
+            rolFilter.addEventListener("change", function() {
+                filterTableByRol();
+            });
+
+            function filterTableByRol() {
+                var selectedValue = rolFilter.value;
+                for (var i = 0; i < rows.length; i++) {
+                    var rowRol = rows[i].getElementsByTagName("td")[0].innerText;
+                    if (selectedValue === "all" || rowRol === selectedValue) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+
+            filterTableByRol(); // Filtrar al cargar la página
+        });
 
 
  </script>
     
-</body>
+ </body>
 </html>

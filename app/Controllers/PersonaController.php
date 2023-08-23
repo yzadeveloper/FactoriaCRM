@@ -132,6 +132,20 @@ class PersonaController{
         }
     }
 
+    function filterCandidato(){
+
+        $query = "SELECT * FROM persona WHERE id_rol = 1 ";
+
+        $stm = $this->connection -> get_connection()->prepare($query);
+
+        $stm -> execute();
+        
+        $results2 = $stm-> fetchAll(\PDO::FETCH_ASSOC);
+        return $results2;
+        
+
+    }
+
 
 }
 
