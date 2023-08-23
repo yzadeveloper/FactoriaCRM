@@ -22,21 +22,36 @@
             color: #FF4700; 
         }
 
-        body {
-            border: 2px solid #FF4700;
-            padding: 20px; 
-            text-align: center;
+        img{
+            display:flex;
+            max-width: 20%;
+            padding: 10px; 
+        }
+        .center{
             
+            display:flex;
+            flex-direction: column;
+            border: 5px solid #FF4700;
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 50px; 
+            text-align: center;
         }
 
     </style>
     <title>Bienvenidos a Factoría F5</title>
 </head>
 <body>
-    <h1>Bienvenido RP</h1>
-    <a class="btn custom-btn" href="./bootcampView/index.php">Bootcamp</a>   
-    <a class="btn custom-btn" href="./personaView/index.php">Candidatos</a>
-    <a class="btn custom-btn" href="">Coders</a>
+    <img src="../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+    
+    <div class="center">
+        <h1>Bienvenido RP</h1>
+       <div class="botones">
+          <a class="btn custom-btn" href="./bootcampView/index.php">Bootcamp</a>   
+          <a class="btn custom-btn" href="./personaView/index.php">Candidatos</a>
+          <a class="btn custom-btn" href="">Coders</a>
+        </div>
+    </div>
 
     
 </body>
