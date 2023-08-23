@@ -66,7 +66,7 @@ class BootcampController{
     }
     function index(){
 
-        $query = "SELECT * FROM bootcamp";
+        $query = "SELECT * FROM bootcamp LEFT JOIN escuela ON escuela.id = bootcamp.id_escuela";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
