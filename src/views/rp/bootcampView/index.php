@@ -25,7 +25,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 <a class="btn custom-btn" href="create.php">Crear Bootcamp</a>
 <a class="btn custom-btn" href="./escuela/index.php">Escuelas</a>
 
-<table class="table table-light table-striped-columns">
+<table class="table custom-table table-bordered table-striped-columns">
     <thead>
         <tr>
             <th colspan="9" class="text-center"><b>LISTA DE BOOTCAMPS</b></th>
