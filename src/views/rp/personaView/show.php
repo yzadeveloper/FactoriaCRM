@@ -128,10 +128,10 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <tr>
                 <th scope="col">Estado</th>
                 <td scope="col">
-                <?php /*if($result["id_rol"] === 1){
-                    echo "Candidato";
-                }else{echo "Coder";
-                }*/?>
+                <?php if($result["id_rol"] === 1){
+                    echo $result["nombre_rol"];
+                }else{echo $result["nombre_rol"];
+                }?>
                     
         </tbody>
     </table>
