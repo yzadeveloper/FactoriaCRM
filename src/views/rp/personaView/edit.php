@@ -2,6 +2,7 @@
 use App\Controllers\PersonaController;
 use App\Controllers\PersonaRequisitosIngresoController;
 use App\Controllers\RequisitosIngresoController;
+use App\Controllers\RolController;
 require __DIR__ . '../../../../../vendor/autoload.php';
 
     $obj = new PersonaController;
@@ -10,6 +11,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     $requisitos = $obj2->show($_GET['id']);
     $obj3 = new RequisitosIngresoController;
     $results = $obj3->index();
+    $obj4 = new RolController;
+    $resultados = $obj4->index()
 
 ?>
 <!DOCTYPE html>
@@ -141,13 +144,16 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     </div>
   </div>
   <div class="mb-3 row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Rol</label>
+  <label for="inputPassword" class="col-sm-2 col-form-label">Rol</label>
     <div class="col-sm-10">
-      <select class="form-select" aria-label="Default select example" name="id_rol">
-                      <option selected value="1">Candidato</option>
-                      <option value="2">Coder</option>
-
-      </select>
+                <select class="form-select" aria-label="Default select example" name="id_rol">
+                <?php if($resultados): ?>
+                <?php foreach($resultados as $resultado): ?>
+                    <option value="<?=$resultado["id_rol"]?>"><?=$resultado["nombre_rol"] ?></option>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <?php endif; ?>
+                </select>
     </div>
   </div>
   <input type="submit" value="Actualizar" class="btn custom-btn">

@@ -64,6 +64,7 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
 <img src="../../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
     </a>
     <a class="btn custom-btn" href="create.php">Crear Escuela</a>
+    <a class="btn custom-btn" href="../index.php">Volver a Bootcamp</a>
 
 <table class="table table-light table-striped-columns">
     <thead>

@@ -20,7 +20,7 @@
 <body>
 
 <form action="update.php" method="post" autocomplete="off">
-    <h2>Editar Bootcamp <?= $result["id"]?></h2>
+    <h2>Editar Bootcamp <?= $result["nombre_bootcamp"]?></h2>
   <div class="mb-3 row">
     <label for="staticEmail" class="col-sm-2 col-form-label">Id</label>
     <div class="col-sm-10">
@@ -67,7 +67,7 @@
   </div>
   <div>
     <input type="submit" value="Actualizar" class="btn btn-success">
-    <a href="show.php?id=<?= $result["id_escuela"]?>" class="btn btn-danger"> Cancelar </a>
+    <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger"> Cancelar </a>
   </div>
 </form>
     

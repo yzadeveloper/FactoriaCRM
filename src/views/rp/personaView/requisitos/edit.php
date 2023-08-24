@@ -73,7 +73,7 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
 
   <div>
     <input type="submit" value="Actualizar" class="btn custom-btn">
-    <a href="show.php?id=<?= $result["id_requisitos_ingreso"]?>" class="btn custom-btn-danger">Cancelar</a>
+    <a href="index.php" class="btn custom-btn-danger">Cancelar</a>
     </div>
   </div>
 </form>

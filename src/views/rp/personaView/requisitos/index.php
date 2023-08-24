@@ -83,12 +83,12 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
    </a>
 
 <a class="btn custom-btn" href="create.php">Añadir requisito</a>
-<a class="btn custom-btn" href="../index.php">Volver a Candidatos</a>
+<a class="btn custom-btn" href="../index.php">Volver a Usuarios</a>
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>
             <th colspan="9" class="text-center"><b>LISTA DE REQUISITOS</b></th>
-        </tr>
+        </tr>   
         <tr>
             <th scope="col">ID</th>
             <th scope="col">NOMBRE</th>

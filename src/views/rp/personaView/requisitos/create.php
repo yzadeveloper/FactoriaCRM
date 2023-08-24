@@ -70,7 +70,7 @@
 
                 <br><br>
             <button type="submit" class="btn custom-btn">Guardar</button>
-            <a class="btn custom-btn-danger" href="../../index.php">Cancelar</a>
+            <a class="btn custom-btn-danger" href="index.php">Cancelar</a>
             <br><br>
         </form>
     </div>
