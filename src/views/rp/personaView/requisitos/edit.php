@@ -57,23 +57,23 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
    </a>
 
 <form action="update.php" method="post" autocomplete="off">
-    <h2>Editar requisito <?= $result["id"]?></h2>
+    <h2>Editar requisito <?= $result["id_requisitos_ingreso"]?></h2>
   <div class="mb-3 row">
     <label for="staticEmail" class="col-sm-2 col-form-label">Id</label>
     <div class="col-sm-10">
-      <input type="text" name="id" readonly class="form-control-plaintext" id="staticEmail" value="<?= $result["id"]?>">
+      <input type="text" name="id_requisitos_ingreso" readonly class="form-control-plaintext" id="staticEmail" value="<?= $result["id_requisitos_ingreso"]?>">
     </div>
   </div>
   <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Nombre</label>
     <div class="col-sm-10">
-      <input type="text" name="nombre" class="form-control" id="inputPassword" value="<?= $result["nombre"]?>">
+      <input type="text" name="nombre_requisitos" class="form-control" id="inputPassword" value="<?= $result["nombre_requisitos"]?>">
     </div>
   </div>
 
   <div>
     <input type="submit" value="Actualizar" class="btn custom-btn">
-    <a href="show.php?id=<?= $result["id"]?>" class="btn custom-btn-danger">Cancelar</a>
+    <a href="show.php?id=<?= $result["id_requisitos_ingreso"]?>" class="btn custom-btn-danger">Cancelar</a>
     </div>
   </div>
 </form>

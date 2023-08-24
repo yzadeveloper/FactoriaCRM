@@ -41,12 +41,10 @@ class PersonaRequisitosIngresoController{
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
-        if(!isset($id)&&!isset($requisito)){
+
             $results = $stm -> execute([$id, $requisito]);
             header("Location:../edit.php?id=$id");
-        }else{
-            echo "El requisito ya existe para este coder";
-        }
+
 
         try{
             if(!empty($results)){
@@ -72,45 +70,24 @@ class PersonaRequisitosIngresoController{
 
         $stm -> execute();
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
-        return $results;
         
-        //require("./src/views/candidato/show.php");
+        return $results;
+
     }
     
-    public function delete($id_persona){
+    public function delete($id_persona_requisito,$id_persona){
 
-        $query = "DELETE FROM persona_requisitos_ingreso WHERE id_persona=:id_persona, id_requisito=:id_requisito";
-
-        $stm = $this->connection -> get_connection()->prepare($query);
-
-        $result = $stm -> execute([":id_persona" => $id_persona]);
-               
-        if($result){
-
-            //header("Location:./src/views/personaView/show.php?id=$id");
-        } else{
-            echo "No se pudo eliminar el requisito con id: $id_persona";
-        }
-    }
-    public function update($id, $nombre, $fecha){
-
-        $query = "UPDATE persona_requisitos_ingreso SET nombre = :nombre, fecha = :fecha WHERE id = :id";
-
-  
+        $query = "DELETE FROM persona_requisitos_ingreso WHERE id_persona_requisito =:id_persona_requisito";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-        $stm->bindParam(":id",$id);
-        $stm->bindParam(":nombre",$nombre);
-        $stm->bindParam(":fecha",$fecha);
 
-
-        $result = $stm -> execute();
+        $result = $stm -> execute([":id_persona_requisito" => $id_persona_requisito]);
                
         if($result){
+            header("Location: ../edit.php?id=$id_persona");
 
-            header("Location:show.php?id=$id");
         } else{
-            echo "No se pudo actualizar el registro con id: $id";
+            echo "No se pudo eliminar el requisito con id: $id_persona_requisito";
         }
     }
 
