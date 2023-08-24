@@ -30,7 +30,9 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 <a href="http://localhost/FactoriaCRM/">
      <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
   </a>
-
+    <div class="pb-3 botones">
+        <a href="index.php" class="btn custom-btn">Volver a candidatos</a>
+    </div>
 <form action="update.php" method="post" autocomplete="off">
     <h2>Editar candidato <?= $result["id"]?></h2>
   <div class="mb-3 row">
@@ -73,7 +75,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
   <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Código Postal</label>
     <div class="col-sm-10">
-      <input type="number" name="codigo_postal" class="form-control" id="inputPassword" value="<?= $result["codigo_postal"]?>">
+      <input type="text" name="codigo_postal" class="form-control" id="inputPassword" value="<?= $result["codigo_postal"]?>">
     </div>
   </div>
   <div class="mb-3 row">
@@ -113,7 +115,6 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     </div>
   </div>
   <input type="submit" value="Actualizar" class="btn custom-btn">
-  <a href="show.php?id=<?= $result["id"]?>" class="btn custom-btn-danger">Volver</a>
 </form>
 
   <h2>Requisitos de acceso</h2>
@@ -140,6 +141,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <tr>
                 <th>REQUISITO</th>
                 <th>FECHA REGISTRO</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -158,13 +160,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php endif; ?>
         
         </div>
-
-    <input type="submit" value="Actualizar" class="btn custom-btn">
-    <a href="show.php?id=<?= $result["id"]?>" class="btn custom-btn-danger">Volver</a>
-</form>
-</form>
-
-    
+  
 </body>
 </html>
 

@@ -33,7 +33,7 @@
                 <input type="text" name="direccion"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Código Postal</label>
-                <input type="number" name="codigo_postal" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
+                <input type="text" name="codigo_postal" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
                 <input type="date" name="fecha_nacimiento"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">

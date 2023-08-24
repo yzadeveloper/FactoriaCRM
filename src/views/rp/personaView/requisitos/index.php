@@ -22,7 +22,7 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
    </a>
 <div class="botones">
   <a class="btn custom-btn" href="create.php">Añadir requisito</a>
-  <a class="btn custom-btn" href="../index.php">Volver a Candidatos</a>
+  <a class="btn custom-btn" href="../index.php">Volver a usuarios</a>
 </div>
 <table class="table custom-table table-striped-columns">
     <thead>
