@@ -16,11 +16,11 @@ $results= $obj -> index()
             
         }
 
-        .custom-btn {
+        
+        .custom-btn.custom-btn {
             background-color: #FF4700; 
             border-color: #FF4700; 
             color: white;
-            
         }
         .custom-btn:hover {
             background-color: white; 
@@ -28,7 +28,7 @@ $results= $obj -> index()
             color: #FF4700; 
         }
 
-        .custom-btn-danger{
+        .custom-btn-danger.custom-btn-danger{
             background-color: white; 
             border-color: #FF4700;
             color: #FF4700;
@@ -45,16 +45,27 @@ $results= $obj -> index()
             padding: 10px; 
         }
 
-        .botones{
-            padding: 10px;
+        .bg-primary-subtle {
+            display:flex;
+            flex-direction: column;
+            border: 5px solid #FF4700;
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 50px; 
         }
 
-        
+        :root {
+            --bs-primary-bg-subtle: white; 
+        }
+
+    
     </style>
     <title>Document</title>
 </head>
 <body>
-    
+<a href="http://localhost/FactoriaCRM/">
+      <img src="../../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+ </a>
     <div class="container-fluid bg-primary-subtle" >
         <h1>Crear Escuela</h1>
         <form action="./store.php" method="POST" autocomplete="off">
