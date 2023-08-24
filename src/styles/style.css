@@ -1,0 +1,72 @@
+/*ENCABEZADOS*/
+
+h1,
+h2 {
+    color: #FF4700;
+    
+}
+
+/*IMAGEN*/
+
+img{
+    display:flex;
+    max-width: 20%;
+    padding: 10px; 
+}
+
+/*BOTONES*/
+
+.botones{
+    padding: 10px;
+}
+
+.custom-btn {
+    background-color: #FF4700; 
+    border-color: #FF4700; 
+    color: white;
+    
+}
+.custom-btn:hover {
+    background-color: white; 
+    border-color: #FF4700;
+    color: #FF4700; 
+}
+
+
+.custom-btn-danger{
+    background-color: white; 
+    border-color: #FF4700;
+    color: #FF4700;
+}
+
+.custom-btn-danger:hover{
+    background-color: #FF4700; 
+    border-color: #FF4700; 
+    color: white;
+}
+
+
+.bg-primary-subtle {
+    display:flex;
+    flex-direction: column;
+    border: 5px solid #FF4700;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 50px; 
+}
+
+:root {
+    --bs-primary-bg-subtle: white; 
+}
+
+.center{
+    
+    display:flex;
+    flex-direction: column;
+    border: 5px solid #FF4700;
+    margin: 50px auto; 
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 50px; 
+    text-align: center;
+}
