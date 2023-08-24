@@ -91,11 +91,20 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 
 <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
 
-<div class="botones">
-  <a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
-  <a class="btn custom-btn" href="create.php">Crear Candidato</a>
-</div> 
-<table class="table table-light table-bordered table-striped-columns" id="table">
+
+<a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
+<a class="btn custom-btn" href="create.php">Crear Candidato</a>
+<div class="filter-container">
+    <label for="rolFilter">Filtrar por rol:</label>
+    <select id="rolFilter" class="form-control">
+        <option value="all">Todos</option>
+        <option value="1">Candidato</option>
+        <option value="2">Códer</option>
+        <option value="3">Excóder</option>
+        <option value="4">RP</option>
+    </select>
+</div>
+<table class="table table-light table-striped-columns" id="table">
     <thead>
         <!-- <tr>
             <th colspan="9" class="text-center"><b>LISTA DE CANDIDATOS</b></th>
