@@ -2,6 +2,7 @@
 use App\Controllers\PersonaController;
 use App\Controllers\PersonaRequisitosIngresoController;
 use App\Controllers\RequisitosIngresoController;
+use App\Controllers\RolController;
 require __DIR__ . '../../../../../vendor/autoload.php';
 
     $obj = new PersonaController;
@@ -10,6 +11,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     $requisitos = $obj2->show($_GET['id']);
     $obj3 = new RequisitosIngresoController;
     $results = $obj3->index();
+    $obj4 = new RolController;
+    $resultados = $obj4->index()
 
 ?>
 <!DOCTYPE html>
@@ -18,52 +21,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-        h2 {
-            color: #FF4700;
-            
-        }
-        h3 {
-            color: #FF4700;
-            
-        }
+    <link rel="stylesheet" href="../../../../src/styles/style.css">
 
-        .custom-btn {
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-            
-        }
-        .custom-btn:hover {
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700; 
-        }
-
-        .custom-btn-danger{
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700;
-        }
-
-        .custom-btn-danger:hover{
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        img{
-            display:flex;
-            max-width: 20%;
-            padding: 10px; 
-        }
-
-        /*form {
-    border: 2px solid #FF4700;
-    padding: 20px;
-}*/
-
- 
-    </style>
     <title>Editar candidato</title>
 </head>
 <body>
@@ -141,13 +100,16 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     </div>
   </div>
   <div class="mb-3 row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Rol</label>
+  <label for="inputPassword" class="col-sm-2 col-form-label">Rol</label>
     <div class="col-sm-10">
-      <select class="form-select" aria-label="Default select example" name="id_rol">
-                      <option selected value="1">Candidato</option>
-                      <option value="2">Coder</option>
-
-      </select>
+                <select class="form-select" aria-label="Default select example" name="id_rol">
+                <?php if($resultados): ?>
+                <?php foreach($resultados as $resultado): ?>
+                    <option value="<?=$resultado["id_rol"]?>"><?=$resultado["nombre_rol"] ?></option>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <?php endif; ?>
+                </select>
     </div>
   </div>
   <input type="submit" value="Actualizar" class="btn custom-btn">

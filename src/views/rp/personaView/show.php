@@ -16,55 +16,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-        h2 {
-            color: #FF4700;
-            
-        }
-        h3 {
-            color: #FF4700;
-            
-        }
+    <link rel="stylesheet" href="../../../../src/styles/style.css">
 
-        .custom-btn {
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-            
-        }
-        .custom-btn:hover {
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700; 
-        }
-
-        .custom-btn-danger{
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700;
-        }
-
-        .custom-btn-danger:hover{
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        img{
-            display:flex;
-            max-width: 20%;
-            padding: 10px; 
-        }
-
-        
-        .container-fluid {
-            border-color: #FF4700; 
-            border-width: 5px;
-        }
-
-    
-
-        
-    </style>
     <title></title>
 </head>
 <body>
@@ -72,7 +25,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
      <a href="http://localhost/FactoriaCRM/">
         <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
     </a>
-    <div class="pb-3">
+    <div class="pb-3 botones">
         <a href="index.php" class="btn custom-btn">Volver a candidatos</a>
     </div>
     <h2 class="text-center">DETALLES DE CANDIDATO <?= $result["nombre"].' '.$result["apellidos"]?></h2>

@@ -1,13 +1,10 @@
 <?php
 use App\Controllers\PersonaController;
-
 require __DIR__ . '../../../../../vendor/autoload.php';
     
     $obj = new PersonaController;
     $results = $obj->index();
     
-    
-   
 ?>
 
 <!DOCTYPE html>
@@ -16,65 +13,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-        h1 {
-            color: #FF4700;
-            
-        }
-
-        
-        .custom-btn.custom-btn {
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        .custom-btn:hover {
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700; 
-        }
-
-        .custom-btn-danger.custom-btn-danger{
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700;
-        }
-
-        .custom-btn-danger:hover{
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        img{
-            display:flex;
-            max-width: 20%;
-            padding: 10px; 
-        }
-
-        .botones{
-            padding: 10px;
-        }
-
-        .filter-container{
-            padding: 5px;
-        }
-
-        .custom-table.custom-table {
-         background-color: white;
-         border: 2px solid #FF4700;
-         border-collapse: seperate;
-         border-spacing: 0;  
-        }
-
-        .custom-table.custom-table td,
-        .custom-table.custom-table th {
-            border: 1px solid #FF4700;
-        }
-    </style>
-    
-    <title>Candidatos Factoría F5</title>
+    <link rel="stylesheet" href="../../../../src/styles/style.css">
     <title>Filtrar Tabla</title>
-    <!-- Agregar enlaces a Bootstrap y jQuery -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -84,15 +24,15 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 
 <a href="http://localhost/FactoriaCRM/">
      <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
-  </a>
+</a>
   
 <div class="botones">
    <a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
-   <a class="btn custom-btn" href="create.php">Crear Candidato</a>
+   <a class="btn custom-btn" href="create.php">Crear Usuario</a>
 </div>  
 <div class="filter-container">
-    <label for="rolFilter">Filtrar por rol:</label>
-    <select id="rolFilter" class="form-control">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Filtrar por rol:</label>
+    <select id="rolFilter" class="form-select">
         <option value="all">Todos</option>
         <option value="1">Candidato</option>
         <option value="2">Códer</option>
@@ -102,9 +42,6 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 </div>
 <table class="table custom-table table-bordered table-striped-columns" id="table">
     <thead>
-        <!-- <tr>
-            <th colspan="9" class="text-center"><b>LISTA DE CANDIDATOS</b></th>
-        </tr> -->
         <tr>
             <th scope="col">ROL</th>
             <th scope="col">NOMBRE</th>
@@ -139,16 +76,13 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php endif; ?>
     </tbody>
 </table>
-
 <script type="text/javascript">
-        
-            document.addEventListener("DOMContentLoaded", function() {
+                document.addEventListener("DOMContentLoaded", function() {
                 var table = document.getElementById("table");
                 var headers = table.getElementsByTagName("th");
                 var rows = Array.from(table.getElementsByTagName("tr")).slice(1);
-                var sortOrder = 1; // 1 para orden ascendente, -1 para orden descendente
+                var sortOrder = 1; 
 
-                // Asignar evento clic a cada encabezado de columna
                 for (var i = 0; i < headers.length; i++) {
                 headers[i].addEventListener("click", sortTable.bind(null, i));
                 headers[i].style.cursor = "pointer";
@@ -166,16 +100,13 @@ require __DIR__ . '../../../../../vendor/autoload.php';
                     return 0;
                 });
 
-                // Reorganizar las filas en la tabla
                 for (var i = 0; i < rows.length; i++) {
                     table.tBodies[0].appendChild(rows[i]);
                 }
 
-                // Cambiar el orden de clasificación para el siguiente clic en el mismo encabezado
                 sortOrder *= -1;
                 }
             });
-            //Empieza el filtrado del dropdown
 
             document.addEventListener("DOMContentLoaded", function() {
             var table = document.getElementById("table");
@@ -198,11 +129,10 @@ require __DIR__ . '../../../../../vendor/autoload.php';
                 }
             }
 
-            filterTableByRol(); // Filtrar al cargar la página
+            filterTableByRol();
         });
 
-
- </script>
+</script>
     
- </body>
+</body>
 </html>

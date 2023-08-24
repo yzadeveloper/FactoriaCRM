@@ -55,7 +55,7 @@ class PersonaController{
         
       ]);
 
-       //header("Location: show.php");
+       header("Location: index.php");
         try{
             if(!empty($results)){
                 $statusCode = 200;
@@ -73,7 +73,7 @@ class PersonaController{
 
         $query = "SELECT * FROM persona";
 
-        $stm = $this->connection -> get_connection()->prepare($query);
+        $stm = $this->connection -> get_connection()->prepare($query);  
 
         $stm -> execute();
         

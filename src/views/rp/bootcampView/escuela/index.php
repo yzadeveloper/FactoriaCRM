@@ -16,56 +16,21 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-        h1 {
-            color: #FF4700;
-            
-        }
-
-        .custom-btn {
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-            
-        }
-        .custom-btn:hover {
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700; 
-        }
-
-        .custom-btn-danger{
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700;
-        }
-
-        .custom-btn-danger:hover{
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        img{
-            display:flex;
-            max-width: 20%;
-            padding: 10px; 
-        }
-
-        .botones{
-            padding: 10px;
-        }
-
-        
-    </style>
+    <link rel="stylesheet" href="../../../../../src/styles/style.css">
     <title>Escuela</title>
 </head>
 <body>
 <a href="http://localhost/FactoriaCRM/">
 <img src="../../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
     </a>
-    <a class="btn custom-btn" href="create.php">Crear Escuela</a>
+   
+    
+    <div class="botones">
+        <a class="btn custom-btn" href="../index.php">Volver a Bootcamp</a>
+        <a class="btn custom-btn" href="create.php">Crear Escuela</a>
+    </div>
 
-<table class="table table-light table-striped-columns">
+<table class="table custom-table table-bordered table-striped-columns">
     <thead>
         <tr>
             <th colspan="9" class="text-center"><b>LISTA DE ESCUELAS</b></th>
@@ -86,9 +51,9 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
                     <th><?=$result["zona"] ?></th>
                     <th><?=$result["responsable"] ?></th>
                     <th>
-                        <a href="show.php?id=<?= $result["id_escuela"]?>" class="btn btn-primary">Ver</a>
-                        <a href="edit.php?id=<?= $result["id_escuela"]?>" class="btn btn-success">Editar</a>
-                        <a href="delete.php?id=<?= $result["id_escuela"]?>" class="btn btn-danger">Eliminar</a> 
+                        <a href="show.php?id=<?= $result["id_escuela"]?>" class="btn custom-btn">Ver</a>
+                        <a href="edit.php?id=<?= $result["id_escuela"]?>" class="btn custom-btn">Editar</a>
+                        <a href="delete.php?id=<?= $result["id_escuela"]?>" class="btn custom-btn-danger">Eliminar</a> 
                     </th>
                 </tr>
             <?php endforeach; ?>
