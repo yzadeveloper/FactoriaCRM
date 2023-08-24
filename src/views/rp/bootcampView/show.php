@@ -13,14 +13,18 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../src/styles/style.css">
     <title>Bootcamp</title>
 </head>
 <body>
-     
+
+  <a href="http://localhost/FactoriaCRM/">
+     <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+  </a>
 
     <div class="pb-3">
-        <a class="btn btn-primary" href="create.php">Crear Bootcamp</a>  
-        <a href="index.php" class="btn btn-primary">Volver a Bootcamp</a>
+        <a class="btn custom-btn" href="create.php">Crear Bootcamp</a>  
+        <a href="index.php" class="btn custom-btn">Volver a Bootcamp</a>
         
     </div>
     <h2 class="text-center"> BOOTCAMP <?= $result["nombre_bootcamp"]?></h2>
@@ -28,8 +32,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <thead>
         <div class="pb-3">
                 
-                <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-                <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>
+                <a href="edit.php?id=<?= $result["id"]?>" class="btn custom-btn">Editar</a>
+                <a href="delete.php?id=<?= $result["id"]?>" class="btn custom-btn-danger">Eliminar</a>
                 </div>
         </thead>
         <tbody>

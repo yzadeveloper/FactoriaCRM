@@ -14,56 +14,7 @@ use App\Controllers\RolController;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-        h1 {
-            color: #FF4700;
-            
-        }
-
-        
-        .custom-btn.custom-btn {
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        .custom-btn:hover {
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700; 
-        }
-
-        .custom-btn-danger.custom-btn-danger{
-            background-color: white; 
-            border-color: #FF4700;
-            color: #FF4700;
-        }
-
-        .custom-btn-danger:hover{
-            background-color: #FF4700; 
-            border-color: #FF4700; 
-            color: white;
-        }
-        img{
-            display:flex;
-            max-width: 20%;
-            padding: 10px; 
-        }
-
-        .bg-primary-subtle {
-            display:flex;
-            flex-direction: column;
-            border: 5px solid #FF4700;
-            margin: 50px auto;
-            max-width: 600px;
-            padding: 50px; 
-        }
-
-        :root {
-            --bs-primary-bg-subtle: white; 
-        }
-
-    
-    </style>
+    <link rel="stylesheet" href="../../../../src/styles/style.css">
    
     <title>Document</title>
 </head>

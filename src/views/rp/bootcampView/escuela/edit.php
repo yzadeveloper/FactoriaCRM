@@ -14,9 +14,14 @@ use App\Controllers\EscuelaController;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <title>Editar Escuela</title>
+    <link rel="stylesheet" href="../../../../../src/styles/style.css">
+ <title>Editar Escuela</title>
 </head>
 <body>
+<a href="http://localhost/FactoriaCRM/">
+<img src="../../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+    </a>
+
 
 <form action="update.php" method="post" autocomplete="off">
     <h2>Editar Escuela <?= $result["id_escuela"]?></h2>
@@ -51,8 +56,8 @@ use App\Controllers\EscuelaController;
       <input type="text" name="responsable" class="form-control" id="inputPassword" value="<?= $result["responsable"]?>">
     </div>
   </div>
-    <input type="submit" value="Actualizar" class="btn btn-success">
-    <a href="show.php?id=<?= $result["id_escuela"]?>" class="btn btn-danger">Cancelar</a>
+    <input type="submit" value="Actualizar" class="btn custom-btn">
+    <a href="show.php?id=<?= $result["id_escuela"]?>" class="btn custom-btn-danger">Cancelar</a>
     </div>
   </div>
 </form>

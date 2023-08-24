@@ -1,0 +1,129 @@
+/*ENCABEZADOS*/
+
+body{
+    width: 80%;
+    margin-left: 10%;
+    margin-right:10%;
+    margin-top: 3%;
+}
+
+h1,
+h2,
+h3 {
+    color: #FF4700;
+}
+
+/*IMAGEN*/
+
+img{
+    display:flex;
+    max-width: 20%;
+    padding: 10px; 
+}
+
+/*BOTONES*/
+
+.botones{
+    padding: 10px;
+}
+
+.custom-btn {
+    background-color: #FF4700; 
+    border-color: #FF4700; 
+    color: white;
+    
+}
+.custom-btn.custom-btn {
+    background-color: #FF4700; 
+    border-color: #FF4700; 
+    color: white;
+}
+.custom-btn:hover {
+    background-color: white; 
+    border-color: #FF4700;
+    color: #FF4700; 
+}
+.custom-btn-danger.custom-btn-danger{
+    background-color: white; 
+    border-color: #FF4700;
+    color: #FF4700;
+}
+
+.custom-btn-danger{
+    background-color: white; 
+    border-color: #FF4700;
+    color: #FF4700;
+}
+
+.custom-btn-danger:hover{
+    background-color: #FF4700; 
+    border-color: #FF4700; 
+    color: white;
+}
+
+
+.bg-primary-subtle {
+    display:flex;
+    flex-direction: column;
+    border: 5px solid #FF4700;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 50px; 
+}
+
+:root {
+    --bs-primary-bg-subtle: white; 
+}
+
+/*INDEX?*/
+
+.center{
+    
+    display:flex;
+    flex-direction: column;
+    border: 5px solid #FF4700;
+    margin: 50px auto; 
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 50px; 
+    text-align: center;
+}
+
+
+.filter-container{
+    padding: 5px;
+}
+
+/*TABLAS*/
+
+.custom-table.custom-table {
+ background-color: white;
+ border: 2px solid #FF4700;
+ border-collapse: seperate;
+ border-spacing: 0;  
+}
+
+.custom-table.custom-table td,
+.custom-table.custom-table th {
+    border: 1px solid #FF4700;
+}
+
+.container-fluid {
+    border-color: #FF4700; 
+    border-width: 5px;
+    width: 80%; 
+}
+
+.container-with-border {
+    border: 2px solid #FF4700;
+    padding: 20px;
+}
+:root {
+--bg-color: #F0F0F0; 
+--border-color: #FF4700; 
+}
+
+.table-bordered {
+    border-color: #FF4700; 
+    border-width: 5px;
+}
