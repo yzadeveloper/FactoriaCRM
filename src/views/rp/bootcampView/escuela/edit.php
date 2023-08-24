@@ -23,7 +23,7 @@ use App\Controllers\EscuelaController;
   <div class="mb-3 row">
     <label for="staticEmail" class="col-sm-2 col-form-label">Id</label>
     <div class="col-sm-10">
-      <input type="text" name="id" readonly class="form-control-plaintext" id="staticEmail" value="<?= $result["id_escuela"]?>">
+      <input type="text" name="id_escuela" readonly class="form-control-plaintext" id="staticEmail" value="<?= $result["id_escuela"]?>">
     </div>
   </div>
   <div class="mb-3 row">

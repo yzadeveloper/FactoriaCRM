@@ -49,7 +49,7 @@ class EscuelaController{
         $responsable,
       ]);
 
-        header("Location: show.php");
+        header("Location: index.php");
         try{
             if(!empty($results)){
                 $statusCode = 200;

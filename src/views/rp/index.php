@@ -49,8 +49,8 @@
         <h1>Bienvenido RP</h1>
        <div class="botones">
           <a class="btn custom-btn" href="./bootcampView/index.php">Bootcamp</a>   
-          <a class="btn custom-btn" href="./personaView/index.php">Candidatos</a>
-          <a class="btn custom-btn" href="">Coders</a>
+          <a class="btn custom-btn" href="./personaView/index.php">Usuarios</a>
+          <a class="btn custom-btn" href="./bootcampView/escuela/index.php">Escuelas</a>
         </div>
     </div>
 
