@@ -22,7 +22,9 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
     </a>
 
     <div class="pb-3">
-        <a href="index.php" class="btn custom-btn">Volver a Escuela</a>
+        <div class="botones">
+          <a href="index.php" class="btn custom-btn">Volver a Escuela</a>
+        </div>
     </div>
     <h2 class="text-center">DETALLES DE ESCUELA <?= $result["nombre_escuela"]?></h2>
     <table class="table container-fluid">

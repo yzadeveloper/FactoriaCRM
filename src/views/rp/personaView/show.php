@@ -73,7 +73,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
      <a href="http://localhost/FactoriaCRM/">
         <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
     </a>
-    <div class="pb-3">
+    <div class="pb-3 botones">
         <a href="index.php" class="btn custom-btn">Volver a candidatos</a>
     </div>
     <h2 class="text-center">DETALLES DE CANDIDATO <?= $result["nombre"].' '.$result["apellidos"]?></h2>

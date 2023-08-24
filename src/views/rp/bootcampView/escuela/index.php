@@ -23,7 +23,9 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
 <a href="http://localhost/FactoriaCRM/">
 <img src="../../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
     </a>
-    <a class="btn custom-btn" href="create.php">Crear Escuela</a>
+    <div class="botones">
+      <a class="btn custom-btn" href="create.php">Crear Escuela</a>
+    </div>
 
 <table class="table custom-table table-bordered table-striped-columns">
     <thead>
