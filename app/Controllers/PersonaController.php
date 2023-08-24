@@ -21,7 +21,9 @@ class PersonaController{
         $this-> connection -> connect();
     }
     function show($id){
-        $query ="SELECT * FROM persona where id = :id limit 1";
+        $query ="SELECT * FROM persona 
+        LEFT JOIN rol ON rol.id_rol = persona.id_rol
+        where id = :id limit 1";
         
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);

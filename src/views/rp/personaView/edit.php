@@ -186,7 +186,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <tr>
                 <th><?=$requisito["nombre_requisitos"] ?></th>
                 <th><?=$requisito["fecha_registro_requisito"] ?></th>
-                <th><a href="./personarequisito/delete.php?id_persona=<?= $result["id"]?>" class="btn custom-btn-danger">Eliminar</a></th>
+                <th><a href="./personarequisito/delete.php?id_persona_requisito=<?= $requisito["id_persona_requisito"]?>&id_persona=<?= $result["id"]?>" class="btn custom-btn-danger">Eliminar</a></th>
             </tr>
         <?php endforeach; ?>
         <?php else: ?>
