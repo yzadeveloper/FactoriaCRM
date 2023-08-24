@@ -22,11 +22,11 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             
         }
 
-        .custom-btn {
+        
+        .custom-btn.custom-btn {
             background-color: #FF4700; 
             border-color: #FF4700; 
             color: white;
-            
         }
         .custom-btn:hover {
             background-color: white; 
@@ -34,7 +34,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             color: #FF4700; 
         }
 
-        .custom-btn-danger{
+        .custom-btn-danger.custom-btn-danger{
             background-color: white; 
             border-color: #FF4700;
             color: #FF4700;
@@ -55,30 +55,23 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             padding: 10px;
         }
 
-        .table-bordered {
-            border-color: #FF4700; 
-            border-width: 5px;
+        .filter-container{
+            padding: 5px;
         }
 
-        .pagination-container {
-            text-align: center;
-            margin-top: 20px;
+        .custom-table.custom-table {
+         background-color: white;
+         border: 2px solid #FF4700;
+         border-collapse: seperate;
+         border-spacing: 0;  
         }
 
-        .pagination .page-item .page-link {
-            background-color: #FF4700;
-            border-color: #FF4700;
-            color: white;
+        .custom-table.custom-table td,
+        .custom-table.custom-table th {
+            border: 1px solid #FF4700;
         }
-
-        .pagination .page-item .page-link:hover {
-            background-color: white;
-            border-color: #FF4700;
-            color: #FF4700;
-        }
-
-        
     </style>
+    
     <title>Candidatos Factoría F5</title>
     <title>Filtrar Tabla</title>
     <!-- Agregar enlaces a Bootstrap y jQuery -->
@@ -89,11 +82,14 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 </head>
 <body>
 
-<img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
-
-
-<a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
-<a class="btn custom-btn" href="create.php">Crear Candidato</a>
+<a href="http://localhost/FactoriaCRM/">
+     <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+  </a>
+  
+<div class="botones">
+   <a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
+   <a class="btn custom-btn" href="create.php">Crear Candidato</a>
+</div>  
 <div class="filter-container">
     <label for="rolFilter">Filtrar por rol:</label>
     <select id="rolFilter" class="form-control">
@@ -104,7 +100,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <option value="4">RP</option>
     </select>
 </div>
-<table class="table table-light table-striped-columns" id="table">
+<table class="table custom-table table-bordered table-striped-columns" id="table">
     <thead>
         <!-- <tr>
             <th colspan="9" class="text-center"><b>LISTA DE CANDIDATOS</b></th>

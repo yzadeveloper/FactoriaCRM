@@ -57,9 +57,10 @@
     <title>Document</title>
 </head>
 <body>
-    
-<img src="../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
 
+  <a href="http://localhost/FactoriaCRM/">    
+     <img src="../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+</a>
 
     <div class="container-fluid bg-primary-subtle" >
         <h1>Crear candidato</h1>
