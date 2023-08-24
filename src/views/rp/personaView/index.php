@@ -16,6 +16,69 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        h1 {
+            color: #FF4700;
+            
+        }
+
+        .custom-btn {
+            background-color: #FF4700; 
+            border-color: #FF4700; 
+            color: white;
+            
+        }
+        .custom-btn:hover {
+            background-color: white; 
+            border-color: #FF4700;
+            color: #FF4700; 
+        }
+
+        .custom-btn-danger{
+            background-color: white; 
+            border-color: #FF4700;
+            color: #FF4700;
+        }
+
+        .custom-btn-danger:hover{
+            background-color: #FF4700; 
+            border-color: #FF4700; 
+            color: white;
+        }
+        img{
+            display:flex;
+            max-width: 20%;
+            padding: 10px; 
+        }
+
+        .botones{
+            padding: 10px;
+        }
+
+        .table-bordered {
+            border-color: #FF4700; 
+            border-width: 5px;
+        }
+
+        .pagination-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination .page-item .page-link {
+            background-color: #FF4700;
+            border-color: #FF4700;
+            color: white;
+        }
+
+        .pagination .page-item .page-link:hover {
+            background-color: white;
+            border-color: #FF4700;
+            color: #FF4700;
+        }
+
+        
+    </style>
     <title>Candidatos Factoría F5</title>
     <title>Filtrar Tabla</title>
     <!-- Agregar enlaces a Bootstrap y jQuery -->
@@ -25,19 +88,14 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a class="btn btn-primary" href="./requisitos/create.php">Añadir requisito</a>
-<a class="btn btn-primary" href="create.php">Crear Candidato</a>
-<div class="filter-container">
-    <label for="rolFilter">Filtrar por rol:</label>
-    <select id="rolFilter" class="form-control">
-        <option value="all">Todos</option>
-        <option value="1">Candidato</option>
-        <option value="2">Códer</option>
-        <option value="3">Excóder</option>
-        <option value="4">RP</option>
-    </select>
-</div>
-<table class="table table-light table-striped-columns" id="table">
+
+<img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+
+<div class="botones">
+  <a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
+  <a class="btn custom-btn" href="create.php">Crear Candidato</a>
+</div> 
+<table class="table table-light table-bordered table-striped-columns" id="table">
     <thead>
         <!-- <tr>
             <th colspan="9" class="text-center"><b>LISTA DE CANDIDATOS</b></th>
@@ -63,9 +121,9 @@ require __DIR__ . '../../../../../vendor/autoload.php';
                     <td><?=$result["telefono"] ?></td>
                     <td><?=$result["fecha_registro"] ?></td>
                     <td>
-                        <a href="show.php?id=<?= $result["id"]?>" class="btn btn-primary">Ver</a>
-                        <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-                        <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a> 
+                        <a href="show.php?id=<?= $result["id"]?>" class="btn custom-btn">Ver</a>
+                        <a href="edit.php?id=<?= $result["id"]?>" class="btn custom-btn">Editar</a>
+                        <a href="delete.php?id=<?= $result["id"]?>" class="btn custom-btn-danger">Eliminar</a> 
                     </td>
                 </tr>
             <?php endforeach; ?>
