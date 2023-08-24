@@ -68,6 +68,8 @@ img{
     --bs-primary-bg-subtle: white; 
 }
 
+/*INDEX?*/
+
 .center{
     
     display:flex;
@@ -84,6 +86,8 @@ img{
 .filter-container{
     padding: 5px;
 }
+
+/*TABLAS*/
 
 .custom-table.custom-table {
  background-color: white;

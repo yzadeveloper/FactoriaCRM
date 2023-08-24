@@ -20,10 +20,11 @@ require __DIR__ . '../../../../../../vendor/autoload.php';
 <a href="http://localhost/FactoriaCRM/">  
       <img src="../../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
    </a>
-
-<a class="btn custom-btn" href="create.php">Añadir requisito</a>
-<a class="btn custom-btn" href="../index.php">Volver a Candidatos</a>
-<table class="table table-light table-striped-columns">
+<div class="botones">
+  <a class="btn custom-btn" href="create.php">Añadir requisito</a>
+  <a class="btn custom-btn" href="../index.php">Volver a Candidatos</a>
+</div>
+<table class="table custom-table table-striped-columns">
     <thead>
         <tr>
             <th colspan="9" class="text-center"><b>LISTA DE REQUISITOS</b></th>
