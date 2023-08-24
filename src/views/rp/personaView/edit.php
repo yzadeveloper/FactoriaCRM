@@ -135,7 +135,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <?php foreach($requisitos as $requisito): ?>
             <tr>
                 <th><?=$requisito["nombre_requisitos"] ?></th>
-                <th><?=$requisito["fecha_registro"] ?></th>
+                <th><?=$requisito["fecha_registro_requisito"] ?></th>
                 <th><a href="./personarequisito/delete.php?id_persona=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a></th>
             </tr>
         <?php endforeach; ?>

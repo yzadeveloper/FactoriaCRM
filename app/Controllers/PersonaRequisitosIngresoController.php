@@ -41,9 +41,13 @@ class PersonaRequisitosIngresoController{
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
-        $results = $stm -> execute([$id, $requisito]);
+        if(!isset($id)&&!isset($requisito)){
+            $results = $stm -> execute([$id, $requisito]);
+            header("Location:../edit.php?id=$id");
+        }else{
+            echo "El requisito ya existe para este coder";
+        }
 
-        header("Location:../edit.php?id=$id");
         try{
             if(!empty($results)){
                 $statusCode = 200;
