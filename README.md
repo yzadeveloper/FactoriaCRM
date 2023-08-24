@@ -12,13 +12,13 @@
 1. [Descripción del Proyecto](#descripcion-proyecto)
 2. [Estado del Proyecto](#estado-proyecto)
 3. [Funcionalidades del Proyecto](#funcionalidades-proyecto)
-4. [Acceso al Proyecto](#acceso-proyecto)
+4. [Requisitos](#Requisitos-proyecto)
 5. [Abre y ejecuta el Proyecto](#abre-y-ejecuta)
 6. [Tecnologías Utilizadas](#tecnologias-utilizadas)
 
 
   <h4> 1. Descripción del Proyecto </h4>
-  <p>  </p> 
+  <p> Es una innovadora web diseñada para facilitar el proceso de postulación de estudiantes a diversos cursos y programas educativos. La plataforma proporcionará a los estudiantes una experiencia sencilla y efectiva para postular a bootcamps relevantes que impulsen su desarrollo académico y profesional. Además, los RP podrán obtener información detallada de cada postulante, datos personales, así como la documentación enviada y curso en el cual pueden participar. </p> 
   
   
   <h4> 2. Estado del Proyecto </h4>
@@ -29,18 +29,25 @@
   
   \## 🔨 </h4> 3. Funcionalidades del Proyecto:</h4>
 
-  - `Eventos Click 1`: Cada “pad” de la batería DEBE estar asociado a un evento de click 
-  - `Eventos Click 2`: Al hacer click en un “pad” se DEBE reproducir el sonido correspondiente al “pad” seleccionado.
-  - `Eventos del teclado 3`: Cada “pad” de la batería DEBE estar asociado a un evento de teclado
-  - `Eventos del teclado 4`: Cada “pad” DEBE tener una tecla asignada para que reproduzca el sonido correspondiente al presionarla.
-  - `Animaciones 5`: Los “pads” de la batería DEBEN tener animaciones visuales a cuando se les haga click o se presione la tecla asociada.
-  - `Animaciones 6`: Puede ser un cambio de color, un efecto de sombra, una animación de escala, etc.
-  - `Animaciones 7`: Las animaciones deben proporcionar retroalimentación visual al usuario para indicar que se ha realizado una acción.
+  - Obtener y almacenar en una base de datos la información detallada de cada estudiante.
+  - Poder contar con datos para nuevos cursos o tener identificados estudiantes que no ingresaron en la primera fase para que puedan hacerlo mas adelante o en un curso nuevo.
+  - Centralizar y gestionar eficazmente la información de los candidatos, incluyendo registros, documentos, datos generales del Bootcamp y datos personales.
+  - Facilitar la comunicación de los RPs con los aspirantes y coders. 
+  - Agilizar el trabajo de los RPs, utilizando conceptos de CRM. 
   
   
-   \## 📁 <h4> 4. Acceso al Proyecto:</h4>
+   \## 📁💻 <h4> 4. Requisitos :</h4>
    
-   - Para poder acceder al detalle de todo el proyecto deberían ingresar a la siguiente dirección: https://github.com/yzadeveloper/FactoriaCRM
+   - Gestión de candidatos:
+     La aplicación permitirá almacenar y administrar la información de los candidatos interesados en la escuela.
+Las RP podrán realizar búsquedas y filtros para identificar a candidatos potenciales con base en criterios específicos y podrán completar datos de los candidatos.
+Proceso de admisión:
+La plataforma ofrecerá un flujo de trabajo para el proceso de admisión, desde la recepción de solicitudes hasta la notificación de resultados.
+Seguimiento académico:
+Se permitirá el seguimiento individual del desempeño académico de cada alumno registrado.
+Los docentes y administradores podrán ingresar notas y comentarios sobre el progreso del alumno.
+
+   - 
    \## 🛠️ <h4> 5. Abre y ejecuta el Proyecto:</h4>
    
    - •	Deberías descargar en tu móvil la app HitTheDomboom y disfruta!!!
