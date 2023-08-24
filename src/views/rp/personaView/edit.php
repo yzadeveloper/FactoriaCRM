@@ -73,7 +73,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
   <div class="mb-3 row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Código Postal</label>
     <div class="col-sm-10">
-      <input type="number" name="codigo_postal" class="form-control" id="inputPassword" value="<?= $result["codigo_postal"]?>">
+      <input type="text" name="codigo_postal" class="form-control" id="inputPassword" value="<?= $result["codigo_postal"]?>">
     </div>
   </div>
   <div class="mb-3 row">
