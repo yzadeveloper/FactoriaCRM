@@ -2,7 +2,7 @@
 
 use App\Controllers\EscuelaController;
 
-require __DIR__ . '../../../../../vendor/autoload.php';
+require __DIR__ . '../../../../../../vendor/autoload.php';
     $obj1 = new EscuelaController;
     $result = $obj1->show($_GET['id']);
 ?>
@@ -18,20 +18,20 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <div class="pb-3">
         <a href="index.php" class="btn btn-primary">Volver a Escuela</a>
     </div>
-    <h2 class="text-center">DETALLES DE ESCUELA <?= $result["nombre_escuela"].' '.$result["zona"]?></h2>
+    <h2 class="text-center">DETALLES DE ESCUELA <?= $result["nombre_escuela"]?></h2>
     <table class="table container-fluid">
         <thead>
         <div class="pb-3">
                 
-                <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-                <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>
-                </div>
+                <a href="edit.php?id=<?= $result["id_escuela"]?>" class="btn btn-success">Editar</a>
+                <a href="delete.php?id=<?= $result["id_escuela"]?>" class="btn btn-danger">Eliminar</a>
+        </div>
         </thead>
         <tbody>
   
             <tr>
                 <th scope="col">Id</th>
-                <td scope="col"><?= $result["id"] ?></td>
+                <td scope="col"><?= $result["id_escuela"] ?></td>
             </tr>
             <tr>
                 <th scope="col">Nombre</th>
@@ -48,26 +48,10 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <tr>
                 <th scope="col">Responsable</th>
             <td scope="col"><?= $result["responsable"] ?></td>
-                </tr>
-           <td scope="col">
+            </tr>
          
         </tbody>
     </table>
 
-    <h3 class="text-center">REQUISITOS DE ACCESO</h3>
-    <table class="table container-fluid">
-        <thead>        
-        <div class="pb-3">
-                
-                <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Editar</a>
-                <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>
-                </div>
-            <tr>
-                <th>REQUISITO</th>
-                <th>ESTADO</th>
-                <th>FECHA</th>  
-            </tr>
-        </thead>
-    </table>
 </body>
 </html>

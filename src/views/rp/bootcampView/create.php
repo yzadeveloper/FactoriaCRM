@@ -45,7 +45,7 @@ $results= $obj -> index()
         
                 <br><br>
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a class="btn btn-danger" href="../../index.php">Cancelar</a>
+            <a class="btn btn-danger" href="index.php">Cancelar</a>
             <br><br>
         </form>
     </div>
