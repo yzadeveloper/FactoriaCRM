@@ -35,15 +35,15 @@ class EscuelaController{
         }
         return $result;
     }
-    function store($nombre, $ciudad, $zona, $responsable){
+    function store($nombre_escuela, $ciudad, $zona, $responsable){
         
-        $query = "INSERT INTO escuela (nombre,
+        $query = "INSERT INTO escuela (nombre_escuela,
          ciudad, zona, responsable)
                   VALUES (?, ?, ?, ?)";
         
        
         $stm = $this->connection -> get_connection()->prepare($query);
-        $results = $stm -> execute([$nombre,
+        $results = $stm -> execute([$nombre_escuela,
         $ciudad,
         $zona,
         $responsable,
@@ -53,7 +53,7 @@ class EscuelaController{
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el bootcamp: '{$nombre['nombre']}'
+                $response = "Se registró exitosamente el bootcamp: '{$nombre_escuela['nombre']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
@@ -89,14 +89,14 @@ class EscuelaController{
             echo "No se pudo eliminar el registro con id: $id";
         }
     }
-    public function update($id, $nombre, $ciudad, $zona, $responsable){
+    public function update($id, $nombre_escuela, $ciudad, $zona, $responsable){
 
-        $query = "UPDATE escuela SET nombre = :nombre, ciudad = :ciudad, zona = :zona, responsable = :responsable WHERE id = :id";
+        $query = "UPDATE escuela SET nombre_escuela = :nombre_escuela, ciudad = :ciudad, zona = :zona, responsable = :responsable WHERE id = :id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
         
-        $stm->bindParam(":nombre",$nombre);
+        $stm->bindParam(":nombre",$nombre_escuela);
         $stm->bindParam(":ciudad",$ciudad);
         $stm->bindParam(":zona",$zona);
         $stm->bindParam(":responsable",$responsable);

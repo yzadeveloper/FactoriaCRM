@@ -63,29 +63,29 @@
 </a>
 
     <div class="container-fluid bg-primary-subtle" >
-        <h1>Crear candidato</h1>
+        <h1>Inscríbete</h1>
         <form action="./store.php" method="POST" autocomplete="off">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" name="nombre" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="nombre" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Apellidos</label>
-                <input type="text" name="apellidos" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="apellidos" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="email" name="correo" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="correo" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Teléfono</label>
-                <input type="text" name="telefono" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="telefono" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Dirección</label>
-                <input type="text" name="direccion"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="direccion"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Código Postal</label>
-                <input type="number" name="codigo_postal" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="number" name="codigo_postal" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
-                <input type="date" name="fecha_nacimiento"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="date" name="fecha_nacimiento"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <label for="exampleInputEmail1" class="form-label">Género</label>
                 <select class="form-select" aria-label="Default select example" name="genero">
@@ -96,12 +96,15 @@
                 </select>
 
                 <label for="exampleInputEmail1" class="form-label">DNI/NIE/Pasaporte</label>
-                <input type="text" name="dni" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="dni" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="removeDollarSign(this)">
 
                 <input type="text" name="id_rol" value="1" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
-                <label for="exampleInputEmail1" class="form-label">Acepto los T&C de protección de datos</label>
-                <input class="form-check-input" name="tratamiento_datos" type="checkbox" value="1" id="flexCheckDefault" required>
+                
+                <label>
+                <input required type="checkbox" checked="checked" name="lopd" pattern="[A-Za-z0-9_-]{1,15}">
+                Acepto los T&C de protección de datos
+                </label>
                     
 
                 
@@ -111,6 +114,12 @@
             <br><br>
         </form>
     </div>
+
+    <script>
+        function removeDollarSign(inputElement) {
+            inputElement.value = inputElement.value.replace(/\$/g, "");
+        }
+    </script>
 
 
 </body>
