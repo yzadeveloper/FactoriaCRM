@@ -19,11 +19,11 @@ use App\Controllers\EscuelaController;
 <body>
 
 <form action="update.php" method="post" autocomplete="off">
-    <h2>Editar Escuela <?= $result["id"]?></h2>
+    <h2>Editar Escuela <?= $result["id_escuela"]?></h2>
   <div class="mb-3 row">
     <label for="staticEmail" class="col-sm-2 col-form-label">Id</label>
     <div class="col-sm-10">
-      <input type="text" name="id" readonly class="form-control-plaintext" id="staticEmail" value="<?= $result["id"]?>">
+      <input type="text" name="id" readonly class="form-control-plaintext" id="staticEmail" value="<?= $result["id_escuela"]?>">
     </div>
   </div>
   <div class="mb-3 row">
@@ -52,7 +52,7 @@ use App\Controllers\EscuelaController;
     </div>
   </div>
     <input type="submit" value="Actualizar" class="btn btn-success">
-    <a href="show.php?id=<?= $result["id"]?>" class="btn btn-danger">Cancelar</a>
+    <a href="show.php?id=<?= $result["id_escuela"]?>" class="btn btn-danger">Cancelar</a>
     </div>
   </div>
 </form>

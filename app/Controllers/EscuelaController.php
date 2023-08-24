@@ -20,11 +20,11 @@ class EscuelaController{
         $this -> connection = new DatabaseConnection($this->server, $this->username, $this->password,$this->database); 
         $this-> connection -> connect();
     }
-    function show($id){
-        $query ="SELECT * FROM escuela where id = :id limit 1";
+    function show($id_escuela){
+        $query ="SELECT * FROM escuela where id_escuela = :id_escuela limit 1";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-        $stm -> bindParam(":id",$id);
+        $stm -> bindParam(":id_escuela",$id_escuela);
         $stm -> execute();
         $result = $stm-> fetch(\PDO::FETCH_ASSOC);
         
@@ -74,29 +74,29 @@ class EscuelaController{
         return $results;
         
     }
-    public function delete($id){
+    public function delete($id_escuela){
 
-        $query = "DELETE FROM escuela WHERE id=:id";
+        $query = "DELETE FROM escuela WHERE id_escuela=:id_escuela";
 
         $stm = $this->connection -> get_connection()->prepare($query);
 
-        $result = $stm -> execute([":id" => $id]);
+        $result = $stm -> execute([":id_escuela" => $id_escuela]);
                
         if($result){
 
             header("Location:./src/views/rp/bootcampView/escuela/index.php");
         } else{
-            echo "No se pudo eliminar el registro con id: $id";
+            echo "No se pudo eliminar el registro con id_escuela: $id_escuela";
         }
     }
-    public function update($id, $nombre_escuela, $ciudad, $zona, $responsable){
+    public function update($id_escuela, $nombre_escuela, $ciudad, $zona, $responsable){
 
-        $query = "UPDATE escuela SET nombre_escuela = :nombre_escuela, ciudad = :ciudad, zona = :zona, responsable = :responsable WHERE id = :id";
+        $query = "UPDATE escuela SET nombre_escuela = :nombre_escuela, ciudad = :ciudad, zona = :zona, responsable = :responsable WHERE id_escuela = :id_escuela";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-        $stm->bindParam(":id",$id);
+        $stm->bindParam(":id_escuela",$id_escuela);
         
-        $stm->bindParam(":nombre",$nombre_escuela);
+        $stm->bindParam(":nombre_escuela",$nombre_escuela);
         $stm->bindParam(":ciudad",$ciudad);
         $stm->bindParam(":zona",$zona);
         $stm->bindParam(":responsable",$responsable);
@@ -107,7 +107,7 @@ class EscuelaController{
 
             header("Location:index.php");
         } else{
-            echo "No se pudo actualizar el registro con id: $id";
+            echo "No se pudo actualizar el registro con id_escuela: $id_escuela";
         }
     }
 

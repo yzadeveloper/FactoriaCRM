@@ -23,7 +23,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <a href="index.php" class="btn btn-primary">Volver a Bootcamp</a>
         
     </div>
-    <h2 class="text-center">LISTA DE BOOTCAMP <?= $result["nombre_bootcamp"]?></h2>
+    <h2 class="text-center"> BOOTCAMP <?= $result["nombre_bootcamp"]?></h2>
     <table class="table container-fluid">
         <thead>
         <div class="pb-3">

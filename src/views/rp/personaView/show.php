@@ -68,9 +68,10 @@ require __DIR__ . '../../../../../vendor/autoload.php';
     <title></title>
 </head>
 <body>
-
-<img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
-
+    
+     <a href="http://localhost/FactoriaCRM/">
+        <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+    </a>
     <div class="pb-3">
         <a href="index.php" class="btn custom-btn">Volver a candidatos</a>
     </div>
@@ -138,19 +139,13 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 
     <h3 class="text-center">REQUISITOS DE ACCESO</h3>
     <div class="pb-3">
-        <a href="edit.php?id=<?= $result["id"]?>" class="btn btn-success">Añadir</a>
+        <a href="edit.php?id=<?= $result["id"]?>" class="btn custom-btn">Editar</a>
     </div>
     <table class="table container-fluid">
         <thead>        
-        <div class="pb-3">
-                
-                <a href="edit.php?id=<?= $result["id"]?>" class="btn custom-btn">Editar</a>
-                <a href="delete.php?id=<?= $result["id"]?>" class="btn custom-btn-danger">Eliminar</a>
-                </div>
             <tr>
                 <th>REQUISITO</th>
                 <th>FECHA REGISTRO</th>
-                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
@@ -159,11 +154,6 @@ require __DIR__ . '../../../../../vendor/autoload.php';
             <tr>
                 <th><?=$requisito["nombre_requisitos"] ?></th>
                 <th><?=$requisito["fecha_registro_requisito"] ?></th>
-                <th>
-                <div class="pb-3">
-                    <a href="delete.php?id=<?= $result["id"]?>" class="btn btn-danger">Eliminar</a>
-                </div>
-                </th>
             </tr>
         <?php endforeach; ?>
         <?php else: ?>
@@ -173,5 +163,8 @@ require __DIR__ . '../../../../../vendor/autoload.php';
         <?php endif; ?>
         </tbody>
     </table>
+    <div class="pb-3">
+        <a href="index.php" class="btn custom-btn">Volver a candidatos</a>
+    </div>
 </body>
 </html>

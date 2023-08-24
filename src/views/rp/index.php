@@ -42,8 +42,9 @@
     <title>Bienvenidos a Factoría F5</title>
 </head>
 <body>
-    <img src="../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
-    
+    <a href="http://localhost/FactoriaCRM/">  
+       <img src="../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
+    </a>
     <div class="center">
         <h1>Bienvenido RP</h1>
        <div class="botones">
