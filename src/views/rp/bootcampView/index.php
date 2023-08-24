@@ -61,6 +61,10 @@ require __DIR__ . '../../../../../vendor/autoload.php';
 <a href="http://localhost/FactoriaCRM/">
      <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
   </a>
+
+<a class="btn custom-btn" href="create.php">Crear Bootcamp</a>
+<a class="btn custom-btn" href="./escuela/index.php">Escuelas</a>
+
 <table class="table table-light table-striped-columns">
     <thead>
         <tr>
