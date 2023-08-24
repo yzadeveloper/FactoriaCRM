@@ -1,3 +1,13 @@
+<?php
+
+use App\Controllers\RolController;
+
+    require __DIR__ . '../../../../../vendor/autoload.php';
+    
+        $obj = new RolController;
+        $results = $obj->index();
+?>  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +72,7 @@
      <img src="../../../../src/assets/images/2 Logo FF5 VECTORIZADO naranja con negro.png" alt="logo naranja">
   </a>
     <div class="container-sm bg-primary-subtle" >
-        <h1>Crear candidato</h1>
+        <h1>Crear usuario</h1>
         <form action="./store.php" method="POST" autocomplete="off">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
@@ -94,11 +104,20 @@
                     <option value="Otro">Otro</option>
                 </select>
 
+                <label for="exampleInputEmail1" class="form-label">Rol</label>
+                <select class="form-select" aria-label="Default select example" name="id_rol">
+                <?php if($results): ?>
+                <?php foreach($results as $resultado): ?>
+                    <option value="<?=$resultado["id_rol"]?>"><?=$resultado["nombre_rol"] ?></option>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <?php endif; ?>
+                    </select>
+
                 <label for="exampleInputEmail1" class="form-label">DNI/NIE/Pasaporte</label>
                 <input type="text" name="dni" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-                <input type="text" name="id_rol" value="1" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <input type="text" name="tratamiento_datos" value="0" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="tratamiento_datos" value="1" hidden class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
                 <br><br>
             <button type="submit" class="btn custom-btn">Guardar</button>

@@ -88,7 +88,7 @@ require __DIR__ . '../../../../../vendor/autoload.php';
   
 <div class="botones">
    <a class="btn custom-btn" href="./requisitos/create.php">Añadir requisito</a>
-   <a class="btn custom-btn" href="create.php">Crear Candidato</a>
+   <a class="btn custom-btn" href="create.php">Crear Usuario</a>
 </div>  
 <div class="filter-container">
     <label for="rolFilter">Filtrar por rol:</label>
