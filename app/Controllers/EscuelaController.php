@@ -11,7 +11,6 @@ class EscuelaController{
     
     public function __construct()
     {
-       
         $this -> server = "localhost";
         $this -> username = "root";
         $this -> password = "";
@@ -21,6 +20,7 @@ class EscuelaController{
         $this-> connection -> connect();
     }
     function show($id_escuela){
+
         $query ="SELECT * FROM escuela where id_escuela = :id_escuela limit 1";
 
         $stm = $this->connection -> get_connection()->prepare($query);
@@ -41,7 +41,6 @@ class EscuelaController{
          ciudad, zona, responsable)
                   VALUES (?, ?, ?, ?)";
         
-       
         $stm = $this->connection -> get_connection()->prepare($query);
         $results = $stm -> execute([$nombre_escuela,
         $ciudad,
@@ -53,13 +52,13 @@ class EscuelaController{
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el bootcamp: '{$nombre_escuela['nombre']}'
+                $response = "Se registró exitosamente la escuela: '{$nombre_escuela['nombre']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
             }
         }catch(Exception $e){
-            echo("Ocurrio un error durante el registro de la base de datos");
+            echo("Ocurrio un error durante el registro de la escuela en la base de datos");
         }
         
     }
@@ -68,9 +67,9 @@ class EscuelaController{
         $query = "SELECT * FROM escuela";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $stm -> execute();
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
+
         return $results;
         
     }
@@ -79,14 +78,13 @@ class EscuelaController{
         $query = "DELETE FROM escuela WHERE id_escuela=:id_escuela";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $result = $stm -> execute([":id_escuela" => $id_escuela]);
                
         if($result){
 
             header("Location:./src/views/rp/bootcampView/escuela/index.php");
         } else{
-            echo "No se pudo eliminar el registro con id_escuela: $id_escuela";
+            echo "No se pudo eliminar el la escuela con id: $id_escuela";
         }
     }
     public function update($id_escuela, $nombre_escuela, $ciudad, $zona, $responsable){
@@ -95,22 +93,19 @@ class EscuelaController{
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id_escuela",$id_escuela);
-        
         $stm->bindParam(":nombre_escuela",$nombre_escuela);
         $stm->bindParam(":ciudad",$ciudad);
         $stm->bindParam(":zona",$zona);
         $stm->bindParam(":responsable",$responsable);
-
         $result = $stm -> execute();
                
         if($result){
 
             header("Location:index.php");
         } else{
-            echo "No se pudo actualizar el registro con id_escuela: $id_escuela";
+            echo "No se pudo actualizar la escuela con id: $id_escuela";
         }
     }
-
 
 }
 

@@ -35,7 +35,7 @@ $results= $obj -> index()
 
                 <br><br>
             <button type="submit" class="btn custom-btn">Guardar</button>
-            <a class="btn custom-btn" href="../../index.php">Cancelar</a>
+            <a class="btn custom-btn" href="index.php">Cancelar</a>
             <br><br>
         </form>
     </div>

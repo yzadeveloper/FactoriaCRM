@@ -11,7 +11,6 @@ class PersonaController{
     
     public function __construct()
     {
-       
         $this -> server = "localhost";
         $this -> username = "root";
         $this -> password = "";
@@ -21,6 +20,7 @@ class PersonaController{
         $this-> connection -> connect();
     }
     function show($id){
+
         $query ="SELECT * FROM persona 
         LEFT JOIN rol ON rol.id_rol = persona.id_rol
         where id = :id limit 1";
@@ -39,7 +39,6 @@ class PersonaController{
          codigo_postal, fecha_nacimiento, genero, dni, id_rol, tratamiento_datos)
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
-       
         $stm = $this->connection -> get_connection()->prepare($query);
         $results = $stm -> execute([$nombre,
         $apellidos,
@@ -52,58 +51,48 @@ class PersonaController{
         $dni,
         $id_rol,
         $tratamiento_datos,
-        
       ]);
 
        header("Location: index.php");
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el candidato: '{$nombre}'
+                $response = "Se registró exitosamente el usuario: '{$nombre}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
             }
         }catch(Exception $e){
-            echo("Ocurrio un error durante el registro de la base de datos");
-        }
-        
+            echo("Ocurrio un error durante el registro del usuario en la base de datos");
+        } 
     }
     function index(){
 
         $query = "SELECT * FROM persona";
 
         $stm = $this->connection -> get_connection()->prepare($query);  
-
         $stm -> execute();
-        
-        
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
-        return $results;
         
-
+        return $results;
     }
     public function delete($id){
 
         $query = "DELETE FROM persona WHERE id = :id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
-
         $result = $stm -> execute([":id" => $id]);
                
         if($result){
 
             header("Location: index.php");
         } else{
-            echo "No se pudo eliminar el registro con id: $id";
+            echo "No se pudo eliminar el usuario con id: $id";
         }
     }
     public function update($id, $nombre, $apellidos, $correo, $telefono, $direccion, $codigo_postal, $fecha_nacimiento,$genero, $dni, $id_rol){
 
         $query = "UPDATE persona SET nombre = :nombre, apellidos = :apellidos, correo = :correo, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, fecha_nacimiento = :fecha_nacimiento, genero = :genero, dni = :dni, id_rol = :id_rol WHERE id = :id";
-
-  
 
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm->bindParam(":id",$id);
@@ -124,7 +113,7 @@ class PersonaController{
 
             header("Location:show.php?id=$id");
         } else{
-            echo "No se pudo actualizar el registro con id: $id";
+            echo "No se pudo actualizar el usuario con id: $id";
         }
     }
 
@@ -133,16 +122,10 @@ class PersonaController{
         $query = "SELECT * FROM persona WHERE id_rol = 1 ";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $stm -> execute();
-        
         $results2 = $stm-> fetchAll(\PDO::FETCH_ASSOC);
-        return $results2;
-        
 
+        return $results2;    
     }
-
-
 }
-
 ?>

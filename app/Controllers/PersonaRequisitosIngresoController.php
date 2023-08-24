@@ -11,7 +11,6 @@ class PersonaRequisitosIngresoController{
     
     public function __construct()
     {
-       
         $this -> server = "localhost";
         $this -> username = "root";
         $this -> password = "";
@@ -21,6 +20,7 @@ class PersonaRequisitosIngresoController{
         $this-> connection -> connect();
     }
     function show($id){
+
         $query = "SELECT * FROM persona_requisitos_ingreso 
         LEFT JOIN persona ON persona.id = persona_requisitos_ingreso.id_persona
         LEFT JOIN requisitos_ingreso ON requisitos_ingreso.id_requisitos_ingreso = persona_requisitos_ingreso.id_requisitos_ingreso
@@ -28,7 +28,6 @@ class PersonaRequisitosIngresoController{
         
         $stm = $this->connection -> get_connection()->prepare($query);
         $stm -> bindParam(":id",$id);
-        
         $stm -> execute();
         $requisitos = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         
@@ -39,27 +38,22 @@ class PersonaRequisitosIngresoController{
         $query = "INSERT INTO persona_requisitos_ingreso (id_persona, id_requisitos_ingreso)
                   VALUES (?,?)";
         
-       
         $stm = $this->connection -> get_connection()->prepare($query);
+        $results = $stm -> execute([$id, $requisito]);
 
-            $results = $stm -> execute([$id, $requisito]);
-            header("Location:../edit.php?id=$id");
-
+        header("Location:../edit.php?id=$id");
 
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el requisito: '{$requisito['nombre']}'
-                             en la base de datos";
-                echo $response;
+                $response = "Se registró exitosamente el requisito en la base de datos";
+                
                 return[$statusCode, $response, $results];
             }
         }catch(Exception $e){
-            echo("Ocurrio un error durante el registro de la base de datos");
-        }
-        
-    }
-    
+            echo("Ocurrio un error durante el registro del requisito en la base de datos");
+        }    
+    }   
     function index(){
 
         $query = "SELECT * FROM persona_requisitos_ingreso 
@@ -67,20 +61,16 @@ class PersonaRequisitosIngresoController{
                 INNER JOIN requisitos_ingreso ON requisitos_ingreso.id_requisitos_ingreso = persona_requisitos_ingreso.id_requisitos_ingreso";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $stm -> execute();
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
         
         return $results;
-
     }
-    
     public function delete($id_persona_requisito,$id_persona){
 
         $query = "DELETE FROM persona_requisitos_ingreso WHERE id_persona_requisito =:id_persona_requisito";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $result = $stm -> execute([":id_persona_requisito" => $id_persona_requisito]);
                
         if($result){
@@ -90,8 +80,5 @@ class PersonaRequisitosIngresoController{
             echo "No se pudo eliminar el requisito con id: $id_persona_requisito";
         }
     }
-
-
 }
-
 ?>

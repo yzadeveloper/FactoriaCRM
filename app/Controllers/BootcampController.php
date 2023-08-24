@@ -11,7 +11,6 @@ class BootcampController{
     
     public function __construct()
     {
-       
         $this -> server = "localhost";
         $this -> username = "root";
         $this -> password = "";
@@ -21,7 +20,7 @@ class BootcampController{
         $this-> connection -> connect();
     }
     function show($id){
-//$query ="SELECT * FROM bootcamp where id = :id limit 1";
+
         $query = "SELECT * FROM bootcamp LEFT JOIN escuela ON escuela.id_escuela = bootcamp.id_escuela where id = :id limit 1";
 
         $stm = $this->connection -> get_connection()->prepare($query);
@@ -55,13 +54,13 @@ class BootcampController{
         try{
             if(!empty($results)){
                 $statusCode = 200;
-                $response = "Se registró exitosamente el bootcamp: '{$nombre_bootcamp['nombre_bootcamp']}'
+                $response = "Se registró exitósamente el bootcamp: '{$nombre_bootcamp['nombre_bootcamp']}'
                              en la base de datos";
                 echo $response;
                 return[$statusCode, $response, $results];
             }
         }catch(Exception $e){
-            echo("Ocurrio un error durante el registro de la base de datos");
+            echo("Ocurrio un error durante el registro del bootcamp de la base de datos");
         }
         
     }
@@ -70,9 +69,9 @@ class BootcampController{
         $query = "SELECT * FROM bootcamp LEFT JOIN escuela ON escuela.id_escuela = bootcamp.id_escuela";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $stm -> execute();
         $results = $stm-> fetchAll(\PDO::FETCH_ASSOC);
+        
         return $results;
         
     }
@@ -81,14 +80,13 @@ class BootcampController{
         $query = "DELETE FROM bootcamp WHERE id=:id";
 
         $stm = $this->connection -> get_connection()->prepare($query);
-
         $result = $stm -> execute([":id" => $id]);
                
         if($result){
 
             header("Location:./src/views/rp/bootcampView/index.php");
         } else{
-            echo "No se pudo eliminar el registro con id: $id";
+            echo "No se pudo eliminar el bootcamp con id: $id";
         }
     }
     public function update($id, $nombre_bootcamp, $promocion, $genero, $patrocinador, $id_escuela){
@@ -110,10 +108,9 @@ class BootcampController{
 
             header("Location:index.php");
         } else{
-            echo "No se pudo actualizar el registro con id: $id";
+            echo "No se pudo actualizar el bootcamp con id: $id";
         }
     }
-
 
 }
 
