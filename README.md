@@ -58,6 +58,9 @@
    - 👁️ CSS, Bootstrap,Ajax
    - 💽 MySQL, XAMPP
 
+  <h4> Informacion para crear tus tablas en MySQL:</h4>
+   <img src="https://github.com/yzadeveloper/FactoriaCRM/blob/main/src/assets/images/MySQL.PNG">
+
    
    ## Autoras
 
